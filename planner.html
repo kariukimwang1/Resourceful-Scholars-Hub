@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download your free PhD Student Planner - Comprehensive planning tools for PhD students including yearly, monthly, weekly planners and research trackers">
+    <title>Free PhD Student Planner - Resourceful Scholars' Hub</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #14b8a6;
+            --accent-purple: #8b5cf6;
+            --accent-amber: #f59e0b;
+            --dark-gray: #1f2937;
+            --medium-gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --success-green: #10b981;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue) !important;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-brand i {
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            color: var(--medium-gray) !important;
+            font-weight: 500;
+            margin: 0 0.25rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-blue) !important;
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-purple));
+            border: none;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(20, 184, 166, 0.3);
+        }
+
+        /* Hero Section */
+        .planner-hero {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.95), rgba(59, 130, 246, 0.9)), 
+                        url('https://images.unsplash.com/photo-1456324504439-367cee3b3c32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .planner-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .planner-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .planner-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Planner Preview */
+        .planner-preview {
+            padding: 4rem 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-teal), var(--accent-purple));
+            border-radius: 2px;
+        }
+
+        .planner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .preview-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border: 1px solid #e5e7eb;
+        }
+
+        .preview-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--secondary-blue);
+        }
+
+        .preview-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--light-gray), #e0e7ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preview-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+        }
+
+        .preview-image i {
+            font-size: 4rem;
+            color: var(--secondary-blue);
+            opacity: 0.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .preview-content {
+            padding: 1.5rem;
+        }
+
+        .preview-title {
+            font-size: 1.3rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .preview-title i {
+            color: var(--accent-teal);
+        }
+
+        .preview-description {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .feature-item h4 {
+            margin-bottom: 0.75rem;
+            color: var(--dark-gray);
+        }
+
+        .feature-item p {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .download-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .download-box {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 2px dashed var(--secondary-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+        }
+
+        .download-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: var(--white);
+            font-size: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-title {
+            font-size: 2rem;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-subtitle {
+            color: var(--medium-gray);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Email Capture Form */
+        .email-form {
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+            text-align: left;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+            outline: none;
+        }
+
+        .checkbox-group {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .form-check-input {
+            margin-top: 0.25rem;
+        }
+
+        .form-check-label {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            line-height: 1.5;
+        }
+
+        .form-check-label a {
+            color: var(--accent-teal);
+            text-decoration: none;
+        }
+
+        .form-check-label a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-purple));
+            color: var(--white);
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(20, 184, 166, 0.3);
+        }
+
+        .btn-download:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .download-note {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            color: var(--medium-gray);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .author-info p {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--light-gray);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark-gray);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: #e5e7eb;
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--medium-gray);
+            line-height: 1.6;
+        }
+
+        /* Success Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .success-modal {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            animation: modalSlideIn 0.5s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--success-green), #34d399);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .success-title {
+            font-size: 2rem;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+
+        .success-message {
+            color: var(--medium-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success-green), #34d399);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+            color: var(--white);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--medium-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--dark-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: #d1d5db;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #374151;
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .planner-title {
+                font-size: 2.5rem;
+            }
+            
+            .planner-grid,
+            .features-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .download-box {
+                padding: 2rem 1.5rem;
+            }
+            
+            .success-modal {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .planner-title {
+                font-size: 2rem;
+            }
+            
+            .planner-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap"></i>
+                Resourceful Scholars' Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog-categories.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-page.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="planner.html">Planner</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="#download">
+                            <i class="fas fa-download me-2"></i>Get Planner
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="planner-hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">
+                    <i class="fas fa-crown me-2"></i>Premium Quality • 100% Free
+                </span>
+                <h1 class="planner-title">Your Ultimate PhD Student Planner</h1>
+                <p class="planner-subtitle">
+                    Organize your doctoral journey with our comprehensive, professionally designed planner. 
+                    Includes yearly, monthly, and weekly planning tools, research trackers, and productivity systems.
+                </p>
+                <a href="#download" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem;">
+                    <i class="fas fa-download me-2"></i>Download Free Planner
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planner Preview -->
+    <section class="planner-preview">
+        <div class="container">
+            <h2 class="section-title">What's Inside the Planner</h2>
+            
+            <div class="planner-grid">
+                <!-- Yearly Planner -->
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="preview-content">
+                        <h3 class="preview-title">
+                            <i class="fas fa-calendar-check"></i>
+                            Yearly Planning Section
+                        </h3>
+                        <p class="preview-description">
+                            Set annual research goals, track major milestones, and plan your entire PhD timeline. Includes goal-setting templates and progress trackers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Monthly Planner -->
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="preview-content">
+                        <h3 class="preview-title">
+                            <i class="fas fa-calendar-week"></i>
+                            Monthly Planning Pages
+                        </h3>
+                        <p class="preview-description">
+                            Detailed monthly spreads for scheduling, task management, and progress tracking. Perfect for managing research phases and deadlines.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Weekly Planner -->
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="preview-content">
+                        <h3 class="preview-title">
+                            <i class="fas fa-calendar-day"></i>
+                            Weekly Planning System
+                        </h3>
+                        <p class="preview-description">
+                            Weekly templates for daily task management, time blocking, and productivity tracking. Balance research, writing, and personal commitments.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Research Trackers -->
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="preview-content">
+                        <h3 class="preview-title">
+                            <i class="fas fa-book"></i>
+                            Research Progress Trackers
+                        </h3>
+                        <p class="preview-description">
+                            Track literature reviews, data collection, analysis progress, and writing milestones. Stay on top of every research component.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Meeting Notes -->
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="preview-content">
+                        <h3 class="preview-title">
+                            <i class="fas fa-comments"></i>
+                            Supervisor Meeting Templates
+                        </h3>
+                        <p class="preview-description">
+                            Structured templates for meeting agendas, discussion points, action items, and follow-up tasks with your supervisors.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Reflection Pages -->
+                <div class="preview-card">
+                    <div class="preview-image">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="preview-content">
+                        <h3 class="preview-title">
+                            <i class="fas fa-brain"></i>
+                            Reflection & Learning Pages
+                        </h3>
+                        <p class="preview-description">
+                            Monthly reflection prompts, learning journals, and skill development trackers to document your growth throughout the PhD journey.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Our Planner Works</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h4>Goal-Oriented Design</h4>
+                    <p>Specifically structured for PhD milestones and research objectives.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h4>PhD-Focused</h4>
+                    <p>Created by PhD graduates who understand the unique challenges.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h4>Beautiful Design</h4>
+                    <p>Professionally designed with clean layouts and academic aesthetics.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h4>Print & Digital Ready</h4>
+                    <p>Optimized for both printing and digital use with fillable fields.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4>Practical Tools</h4>
+                    <p>Includes trackers, checklists, and templates you'll actually use.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h4>Regular Updates</h4>
+                    <p>Free updates with new templates and improvements each semester.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download-section">
+        <div class="container">
+            <div class="download-container">
+                <div class="download-box">
+                    <div class="download-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    
+                    <h2 class="download-title">Get Your Free Planner Now</h2>
+                    <p class="download-subtitle">
+                        Enter your email below to instantly receive the complete PhD Student Planner PDF. 
+                        You'll also get access to exclusive updates and additional resources.
+                    </p>
+                    
+                    <!-- Email Capture Form -->
+                    <form id="plannerForm" class="email-form">
+                        <div class="form-group">
+                            <label for="userName" class="form-label">Your Name</label>
+                            <input type="text" id="userName" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="userEmail" class="form-label">Email Address</label>
+                            <input type="email" id="userEmail" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="userUniversity" class="form-label">University/Institution (Optional)</label>
+                            <input type="text" id="userUniversity" class="form-control" placeholder="Where are you studying?">
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <div class="form-check">
+                                <input type="checkbox" id="acceptTerms" class="form-check-input" required>
+                                <label for="acceptTerms" class="form-check-label">
+                                    I agree to receive the PhD Student Planner and occasional updates from Resourceful Scholars' Hub. 
+                                    I can unsubscribe at any time. <a href="privacy.html">Privacy Policy</a>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn-download" id="submitBtn">
+                            <i class="fas fa-download"></i>
+                            Download My Free Planner
+                        </button>
+                    </form>
+                    
+                    <p class="download-note">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. No spam, ever.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Loved by PhD Students Worldwide</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        "This planner transformed how I organize my PhD. The research trackers alone saved me hours of work each week. Highly recommended!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SJ</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>PhD Candidate, University of Cambridge</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        "Finally a planner made specifically for PhD students! The meeting templates helped me have more productive discussions with my supervisor."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>PhD Student, Stanford University</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        "As an international student, staying organized is crucial. This planner helped me balance research, teaching, and personal life effectively."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LC</div>
+                        <div class="author-info">
+                            <h4>Li Chen</h4>
+                            <p>PhD Researcher, University of Toronto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is the planner really free?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! The PhD Student Planner is completely free. We believe in supporting PhD students without financial barriers. You'll receive the full PDF planner immediately after submitting your email.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What format is the planner in?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The planner is provided as a PDF file that you can either print or use digitally. It includes fillable fields for digital use and is optimized for both A4 and Letter paper sizes.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I edit the planner?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The PDF has fillable fields that you can edit directly in most PDF readers. For full customization, you can import it into editing software like Adobe Acrobat or Canva.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Will I receive updates?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! By downloading the planner, you'll join our community and receive occasional updates with new templates, improved versions, and additional resources for PhD students.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is there a printable version?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! The planner is designed to be printer-friendly with clean layouts and minimal ink usage. You can print the entire planner or just the sections you need.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="success-modal">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <h2 class="success-title">Download Started!</h2>
+            
+            <p class="success-message">
+                Your PhD Student Planner is downloading now. Check your email for the download link and additional resources. 
+                We've also sent you a welcome email with tips for getting the most out of your planner.
+            </p>
+            
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="#" class="btn-success" onclick="triggerDownload()">
+                    <i class="fas fa-redo"></i>
+                    Download Again
+                </a>
+                <a href="blog-categories.html" class="btn-success" style="background: linear-gradient(135deg, var(--secondary-blue), var(--accent-purple));">
+                    <i class="fas fa-book"></i>
+                    Read Our Blog
+                </a>
+            </div>
+            
+            <p style="margin-top: 2rem; color: var(--medium-gray); font-size: 0.9rem;">
+                Having trouble? <a href="contact.html" style="color: var(--accent-teal);">Contact us</a> for support.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-graduation-cap"></i> Resourceful Scholars' Hub</h3>
+                    <p>Empowering PhD students worldwide with comprehensive resources, expert guidance, and practical tools for academic success.</p>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/channel/UCGupft-xzHJ85QL95o2I93A" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog-categories.html">Blog & Articles</a></li>
+                        <li><a href="planner.html">Free Planner</a></li>
+                        <li><a href="templates.html">Templates</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="tutorials.html">Video Tutorials</a></li>
+                        <li><a href="tools.html">Research Tools</a></li>
+                        <li><a href="courses.html">Online Courses</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Resourceful Scholars' Hub. All rights reserved. Created by Grace Njeri-Otieno.</p>
+                <p>
+                    <a href="privacy.html">Privacy Policy</a> | 
+                    <a href="terms.html">Terms of Service</a> | 
+                    <a href="contact.html">Contact</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Form Submission with Email Capture
+        document.getElementById('plannerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const userName = document.getElementById('userName').value;
+            const userEmail = document.getElementById('userEmail').value;
+            const userUniversity = document.getElementById('userUniversity').value;
+            
+            // Validate email
+            if (!isValidEmail(userEmail)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call (in real implementation, this would send to your backend)
+            setTimeout(() => {
+                // Save user data (in real implementation, send to your email service)
+                const userData = {
+                    name: userName,
+                    email: userEmail,
+                    university: userUniversity,
+                    date: new Date().toISOString(),
+                    source: 'planner-download'
+                };
+                
+                // Store in localStorage for demo purposes
+                localStorage.setItem('plannerUser', JSON.stringify(userData));
+                
+                // Simulate adding to mailing list
+                console.log('[v0] User subscribed for planner:', userData);
+                
+                // Show success modal
+                document.getElementById('successModal').classList.add('active');
+                
+                // Reset form
+                this.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // In real implementation, you would:
+                // 1. Send data to your email service (Mailchimp, ConvertKit, etc.)
+                // 2. Trigger automated email with download link
+                // 3. Add to specific mailing list/segment
+                // 4. Track conversion in analytics
+                
+            }, 1500); // Simulate network delay
+        });
+        
+        // Email validation
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+                
+                // Open clicked FAQ if it wasn't active
+                if (!isActive) {
+                    this.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+        
+        // Modal functions
+        function closeModal() {
+            document.getElementById('successModal').classList.remove('active');
+        }
+        
+        function triggerDownload() {
+            // In real implementation, this would trigger actual file download
+            // For demo, we'll simulate it
+            const link = document.createElement('a');
+            link.href = '#'; // Replace with actual file URL
+            link.download = 'PhD_Student_Planner_2024.pdf';
+            link.click();
+            
+            // Close modal after download
+            setTimeout(closeModal, 1000);
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+        
+        // Auto-expand first FAQ
+        document.querySelector('.faq-question').click();
+    </script>
+</body>
+</html>

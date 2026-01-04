@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en" data-wp-theme="resourceful-scholars">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with Resourceful Scholars' Hub. Contact Grace Njeri-Otieno for PhD support, collaboration, or questions about our resources.">
+    <title>Contact Us - Resourceful Scholars' Hub</title>
+    
+    <!-- WordPress Meta Tags -->
+    <meta name="wp-template" content="contact-page">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            /* Professional Contact Page Color Palette */
+            --primary-darkblue: #1e40af;
+            --primary-blue: #2563eb;
+            --secondary-skyblue: #3b82f6;
+            --accent-teal: #14b8a6;
+            --accent-light-teal: #5eead4;
+            --success-green: #10b981;
+            --warning-orange: #f59e0b;
+            --error-red: #ef4444;
+            --light-gray: #f8fafc;
+            --medium-gray: #e2e8f0;
+            --dark-gray: #64748b;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --shadow-light: 0 4px 20px rgba(30, 64, 175, 0.08);
+            --shadow-medium: 0 8px 40px rgba(30, 64, 175, 0.12);
+            --shadow-heavy: 0 20px 60px rgba(30, 64, 175, 0.15);
+            --shadow-form: 0 10px 40px rgba(30, 64, 175, 0.1);
+            
+            /* Animation Variables */
+            --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            border-radius: 5px;
+        }
+
+        /* Enhanced Navigation */
+        .rsh-navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(30, 64, 175, 0.1);
+            padding: 1.2rem 0;
+            transition: var(--transition-smooth);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .rsh-navbar.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: var(--shadow-light);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-darkblue), var(--secondary-skyblue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue) !important;
+        }
+
+        .btn-rsh-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-rsh-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+            color: white;
+        }
+
+        /* Enhanced Hero Section */
+        .contact-hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, 
+                rgba(30, 64, 175, 0.9) 0%, 
+                rgba(59, 130, 246, 0.85) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path fill="%23ffffff" fill-opacity="0.05" d="M0,0V600H1200V0ZM600,300A150,150,0,1,1,600,0,150,150,0,0,1,600,300Z"/></svg>');
+            color: white;
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .contact-shape {
+            position: absolute;
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.1);
+            animation: floatContact 20s ease-in-out infinite;
+        }
+
+        .contact-shape:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .contact-shape:nth-child(2) {
+            top: 40%;
+            right: 15%;
+            animation-delay: -5s;
+        }
+
+        .contact-shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+
+        @keyframes floatContact {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg) scale(1.1);
+            }
+            66% {
+                transform: translateY(15px) rotate(240deg) scale(0.9);
+            }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Grid Layout */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: -4rem auto 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                margin-top: -2rem;
+            }
+        }
+
+        /* Contact Info Cards - Left Side */
+        .contact-info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-heavy);
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .contact-info-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--light-gray), white);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            box-shadow: var(--shadow-light);
+            transition: var(--transition-smooth);
+        }
+
+        .contact-info-card:hover .contact-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+        }
+
+        .contact-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-details li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-details i {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        /* Enhanced Contact Form - Right Side */
+        .contact-form-section {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: var(--shadow-heavy);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .contact-form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.03), rgba(20, 184, 166, 0.03));
+            z-index: -1;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: var(--shadow-medium);
+            animation: formIconPulse 2s infinite;
+        }
+
+        @keyframes formIconPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: var(--shadow-medium);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+            }
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: var(--transition-smooth);
+        }
+
+        .form-label.required::after {
+            content: ' *';
+            color: var(--error-red);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--medium-gray);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition-smooth);
+            background: var(--light-gray);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-control.error {
+            border-color: var(--error-red);
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        .form-control.success {
+            border-color: var(--success-green);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .form-control::placeholder {
+            color: var(--dark-gray);
+            opacity: 0.7;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Form Validation Messages */
+        .error-message {
+            color: var(--error-red);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form Checkbox */
+        .form-check {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-check-input {
+            width: 1.2rem;
+            height: 1.2rem;
+            margin-top: 0.2rem;
+            border: 2px solid var(--medium-gray);
+            transition: var(--transition-smooth);
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .form-check-input:focus {
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-check-label {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .submit-btn.loading {
+            background: var(--medium-gray);
+            cursor: not-allowed;
+        }
+
+        .submit-btn.loading .btn-text {
+            opacity: 0;
+        }
+
+        .submit-btn .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: absolute;
+        }
+
+        .submit-btn.loading .spinner {
+            display: block;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Response Messages */
+        .response-message {
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            display: none;
+            animation: messageAppear 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border-left: 4px solid;
+        }
+
+        @keyframes messageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .response-message.success {
+            background: rgba(16, 185, 129, 0.1);
+            border-left-color: var(--success-green);
+            color: var(--success-green);
+            display: block;
+        }
+
+        .response-message.error {
+            background: rgba(239, 68, 68, 0.1);
+            border-left-color: var(--error-red);
+            color: var(--error-red);
+            display: block;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, var(--light-gray), white);
+            padding: 5rem 0;
+            margin-top: 5rem;
+            border-radius: 30px;
+        }
+
+        .faq-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .faq-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--medium-gray);
+        }
+
+        .faq-card.active {
+            border-color: var(--primary-blue);
+            background: linear-gradient(135deg, var(--light-gray), white);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .faq-icon {
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-card.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, margin-top 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-card.active .faq-answer {
+            max-height: 500px;
+            margin-top: 1rem;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .map-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+            height: 400px;
+            background: linear-gradient(135deg, var(--medium-gray), var(--light-gray));
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(20, 184, 166, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Enhanced CTA */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-light-teal));
+            color: white;
+            padding: 4rem 0;
+            border-radius: 30px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-waves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23ffffff" opacity="0.1"/></svg>');
+            animation: wave 12s linear infinite;
+            opacity: 0.3;
+        }
+
+        .wave:nth-child(2) {
+            animation-delay: -6s;
+            opacity: 0.2;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Enhanced Footer */
+        .rsh-footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-links a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light-teal);
+            transform: translateX(5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .contact-grid {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-form-section,
+            .contact-info-card {
+                padding: 2rem;
+            }
+            
+            .contact-grid {
+                margin-top: -2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .contact-hero {
+                padding: 6rem 0 3rem;
+            }
+            
+            .form-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.75rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .contact-form-section {
+                padding: 1.5rem;
+            }
+            
+            .contact-info-card {
+                padding: 1.5rem;
+            }
+            
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".rsh-navbar" data-bs-offset="100">
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg rsh-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap me-2"></i>
+                <span class="d-none d-sm-inline">Resourceful Scholars' Hub</span>
+                <span class="d-inline d-sm-none">RSH</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-page.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog-categories.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="index.html#cta" class="btn btn-rsh-primary">
+                            <i class="fas fa-download me-2"></i>Free Planner
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-shapes">
+            <div class="contact-shape">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="contact-shape">
+                <i class="fas fa-headset"></i>
+            </div>
+            <div class="contact-shape">
+                <i class="fas fa-envelope"></i>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="hero-title">Let's Connect & Collaborate</h1>
+                    <p class="hero-subtitle">
+                        Have questions about our resources? Need PhD guidance? Interested in collaboration? 
+                        We're here to support your academic journey.
+                    </p>
+                    
+                    <div class="mt-4">
+                        <a href="#contact-form" class="btn btn-light btn-lg me-3">
+                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                        </a>
+                        <a href="#contact-info" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-phone me-2"></i>Contact Info
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="py-5 py-md-7">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Left Column: Contact Info -->
+                <div class="contact-info-section" id="contact-info">
+                    <!-- General Inquiries Card -->
+                    <div class="contact-info-card" data-aos="fade-right" data-aos-delay="100">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <h3 class="fw-bold mb-3">General Inquiries</h3>
+                        <p class="text-muted mb-4">
+                            For questions about our resources, collaborations, or general information.
+                        </p>
+                        <ul class="contact-details">
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email:</strong><br>
+                                    <a href="mailto:info@resourcefulscholarshub.com">info@resourcefulscholarshub.com</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Response Time:</strong><br>
+                                    24-48 hours during business days
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Support Card -->
+                    <div class="contact-info-card" data-aos="fade-right" data-aos-delay="200">
+                        <div class="contact-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="fw-bold mb-3">Technical Support</h3>
+                        <p class="text-muted mb-4">
+                            Need help with downloads, website issues, or technical questions?
+                        </p>
+                        <ul class="contact-details">
+                            <li>
+                                <i class="fas fa-life-ring"></i>
+                                <div>
+                                    <strong>Support:</strong><br>
+                                    <a href="mailto:support@resourcefulscholarshub.com">support@resourcefulscholarshub.com</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-question-circle"></i>
+                                <div>
+                                    <strong>Check FAQ First:</strong><br>
+                                    Many questions answered in our FAQ section
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Connect Card -->
+                    <div class="contact-info-card" data-aos="fade-right" data-aos-delay="300">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3 class="fw-bold mb-3">Connect With Us</h3>
+                        <p class="text-muted mb-4">
+                            Join our community and stay updated with the latest resources.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="https://www.youtube.com/channel/UCGupft-xzHJ85QL95o2I93A" 
+                               class="btn btn-outline-primary btn-sm" target="_blank">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="btn btn-outline-primary btn-sm">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </a>
+                            <a href="#" class="btn btn-outline-primary btn-sm">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                            <a href="#" class="btn btn-outline-primary btn-sm">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Contact Form -->
+                <div class="contact-form-section" id="contact-form" data-aos="fade-left" data-aos-delay="200">
+                    <div class="form-header">
+                        <div class="form-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h2 class="fw-bold mb-2">Send Us a Message</h2>
+                        <p class="text-muted">We'll respond as quickly as possible</p>
+                    </div>
+
+                    <!-- Success Message -->
+                    <div class="response-message success" id="successMessage" style="display: none;">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle me-3 fa-2x"></i>
+                            <div>
+                                <h5 class="fw-bold mb-1">Message Sent Successfully!</h5>
+                                <p class="mb-0">Thank you for contacting us. We'll get back to you within 24-48 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div class="response-message error" id="errorMessage" style="display: none;">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-exclamation-circle me-3 fa-2x"></i>
+                            <div>
+                                <h5 class="fw-bold mb-1">Oops! Something went wrong.</h5>
+                                <p class="mb-0" id="errorText">Please check the form and try again.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name" class="form-label required">Full Name</label>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="name" 
+                                   name="name"
+                                   placeholder="John Doe"
+                                   required>
+                            <div class="error-message" id="nameError">Please enter your full name</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label required">Email Address</label>
+                            <input type="email" 
+                                   class="form-control" 
+                                   id="email" 
+                                   name="email"
+                                   placeholder="john.doe@university.edu"
+                                   required>
+                            <div class="error-message" id="emailError">Please enter a valid email address</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label required">Subject</label>
+                            <select class="form-control" id="subject" name="subject" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="collaboration">Collaboration Request</option>
+                                <option value="feedback">Feedback/Suggestions</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message" id="subjectError">Please select a subject</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label required">Your Message</label>
+                            <textarea class="form-control" 
+                                      id="message" 
+                                      name="message"
+                                      placeholder="How can we help you with your PhD journey?"
+                                      rows="5"
+                                      required></textarea>
+                            <div class="error-message" id="messageError">Please enter your message</div>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" 
+                                   type="checkbox" 
+                                   id="subscribe" 
+                                   name="subscribe">
+                            <label class="form-check-label" for="subscribe">
+                                Subscribe to our newsletter for PhD resources and updates
+                            </label>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" 
+                                   type="checkbox" 
+                                   id="consent" 
+                                   name="consent"
+                                   required>
+                            <label class="form-check-label required" for="consent">
+                                I agree to the processing of my data according to your 
+                                <a href="#" class="text-primary">Privacy Policy</a>
+                            </label>
+                            <div class="error-message" id="consentError">Please agree to our privacy policy</div>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span class="btn-text">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                            <div class="spinner"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary bg-gradient mb-3 px-3 py-2 rounded-pill">
+                    Common Questions
+                </span>
+                <h2 class="display-5 fw-bold mb-3">Frequently Asked Questions</h2>
+                <p class="lead text-muted">Quick answers to common questions</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="faq-question">
+                            <span>How quickly will I receive a response?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-muted mb-0">
+                                We aim to respond to all inquiries within 24-48 hours during business days (Monday-Friday). 
+                                For technical support, we typically respond within 24 hours.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="faq-question">
+                            <span>Are your resources really free?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-muted mb-0">
+                                Yes! All our resources, including the PhD Planner, templates, and guides are 100% free. 
+                                We believe in accessible education and supporting PhD students worldwide.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="faq-question">
+                            <span>Can I request a specific resource?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-muted mb-0">
+                                Absolutely! We welcome suggestions for new resources. Please use the "Feedback/Suggestions" 
+                                option in the contact form or email us directly with your ideas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="faq-question">
+                            <span>Do you offer one-on-one PhD consulting?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-muted mb-0">
+                                While we primarily offer free resources, we do offer limited consulting services. 
+                                Please contact us directly to discuss your specific needs and availability.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container" data-aos="fade-up">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary bg-gradient mb-3 px-3 py-2 rounded-pill">
+                    Global Reach
+                </span>
+                <h2 class="display-5 fw-bold mb-3">Serving Scholars Worldwide</h2>
+                <p class="lead text-muted">Supporting PhD students across 40+ countries</p>
+            </div>
+
+            <div class="map-container">
+                <div class="map-overlay">
+                    <div class="text-center">
+                        <i class="fas fa-globe-americas fa-3x mb-3"></i>
+                        <h4 class="fw-bold">Global PhD Support Community</h4>
+                        <p class="mb-0">Virtual support across all timezones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced CTA Section -->
+    <section class="contact-cta">
+        <div class="cta-waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="zoom-in">
+                    <h2 class="display-4 fw-bold mb-4">Need Immediate PhD Resources?</h2>
+                    <p class="lead mb-5 opacity-90">
+                        Download our free PhD Planner while you wait for our response.
+                    </p>
+                    
+                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                        <a href="index.html#cta" class="btn btn-light btn-lg px-5">
+                            <i class="fas fa-download me-2"></i>Get Free Planner
+                        </a>
+                        <a href="resources.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-tools me-2"></i>Browse Resources
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="rsh-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand text-white mb-3 d-inline-block" href="index.html">
+                        <i class="fas fa-graduation-cap me-2"></i>
+                        Resourceful Scholars' Hub
+                    </a>
+                    <p class="text-light opacity-75 mb-4">
+                        Empowering PhD students worldwide with professional planning tools and academic resources.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="https://www.youtube.com/channel/UCGupft-xzHJ85QL95o2I93A" 
+                           class="text-white opacity-75 hover-opacity-100" target="_blank">
+                            <i class="fab fa-youtube fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white opacity-75 hover-opacity-100">
+                            <i class="fab fa-twitter fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white opacity-75 hover-opacity-100">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white opacity-75 hover-opacity-100">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about-page.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="blog-categories.html">Blog</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-white mb-4">Resources</h5>
+                    <div class="footer-links">
+                        <a href="resources.html">Free Tools</a>
+                        <a href="index.html#cta">PhD Planner</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="#faq">FAQ</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="text-white mb-4">Contact Information</h5>
+                    <div class="footer-links">
+                        <a href="mailto:info@resourcefulscholarshub.com">
+                            <i class="fas fa-envelope me-2"></i>info@resourcefulscholarshub.com
+                        </a>
+                        <a href="mailto:support@resourcefulscholarshub.com">
+                            <i class="fas fa-headset me-2"></i>support@resourcefulscholarshub.com
+                        </a>
+                        <a href="https://resourcefulscholarshub.com" target="_blank">
+                            <i class="fas fa-globe me-2"></i>resourcefulscholarshub.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-5 opacity-25">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light opacity-75">
+                        &copy; 2026 Resourceful Scholars' Hub. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-light opacity-75">
+                        <a href="#" class="text-light opacity-75 text-decoration-none me-3">Privacy Policy</a>
+                        <a href="#" class="text-light opacity-75 text-decoration-none">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.rsh-navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-card').forEach(card => {
+            const question = card.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                card.classList.toggle('active');
+            });
+        });
+        
+        // Form Validation and Submission
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const errorText = document.getElementById('errorText');
+        
+        // Show error message for a field
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const errorElement = document.getElementById(fieldId + 'Error');
+            
+            field.classList.add('error');
+            field.classList.remove('success');
+            errorElement.textContent = message;
+            errorElement.classList.add('show');
+        }
+        
+        // Clear error message for a field
+        function clearError(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorElement = document.getElementById(fieldId + 'Error');
+            
+            field.classList.remove('error');
+            errorElement.classList.remove('show');
+        }
+        
+        // Show success state for a field
+        function showSuccess(fieldId) {
+            const field = document.getElementById(fieldId);
+            field.classList.add('success');
+            field.classList.remove('error');
+            clearError(fieldId);
+        }
+        
+        // Validate email format
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Validate individual field
+        function validateField(fieldId) {
+            const field = document.getElementById(fieldId);
+            const value = field.value.trim();
+            
+            clearError(fieldId);
+            
+            if (!value) {
+                showError(fieldId, 'This field is required');
+                return false;
+            }
+            
+            if (fieldId === 'email' && !validateEmail(value)) {
+                showError(fieldId, 'Please enter a valid email address');
+                return false;
+            }
+            
+            if (fieldId === 'message' && value.length < 10) {
+                showError(fieldId, 'Please enter a more detailed message (minimum 10 characters)');
+                return false;
+            }
+            
+            showSuccess(fieldId);
+            return true;
+        }
+        
+        // Real-time validation
+        ['name', 'email', 'subject', 'message', 'consent'].forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                field.addEventListener('blur', () => validateField(fieldId));
+                field.addEventListener('input', () => clearError(fieldId));
+            }
+        });
+        
+        // Form submission
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Validate all fields
+            const fields = ['name', 'email', 'subject', 'message', 'consent'];
+            let isValid = true;
+            
+            fields.forEach(fieldId => {
+                if (!validateField(fieldId)) {
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                errorText.textContent = 'Please correct the errors above';
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.classList.add('loading');
+            
+            // Simulate form submission (in WordPress, this would be an AJAX call to admin-ajax.php)
+            setTimeout(() => {
+                // For demo purposes, always show success
+                // In production, this would be based on actual API response
+                
+                submitBtn.classList.remove('loading');
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Clear all success/error states
+                fields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (field) {
+                        field.classList.remove('error', 'success');
+                    }
+                    clearError(fieldId);
+                });
+                
+                // Hide success message after 10 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 10000);
+                
+            }, 2000); // Simulate 2 second API call
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL hash without scrolling
+                    history.pushState(null, null, href);
+                }
+            });
+        });
+        
+        // Add floating animation to contact cards on scroll
+        const contactCards = document.querySelectorAll('.contact-info-card');
+        const contactObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animationDelay = `${index * 0.1}s`;
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        contactCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            contactObserver.observe(card);
+        });
+        
+        // Add hover effect to form
+        const formSection = document.querySelector('.contact-form-section');
+        if (formSection) {
+            formSection.addEventListener('mousemove', (e) => {
+                const rect = formSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateY = ((x - centerX) / centerX) * 1;
+                const rotateX = ((centerY - y) / centerY) * 1;
+                
+                formSection.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+            });
+            
+            formSection.addEventListener('mouseleave', () => {
+                formSection.style.transform = 'perspective(1000px) rotateY(0) rotateX(0)';
+            });
+        }
+    </script>
+</body>
+</html>

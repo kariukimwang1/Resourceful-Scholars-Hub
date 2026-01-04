@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en" data-wp-theme="resourceful-scholars">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Resourceful Scholars' Hub - Founded by Grace Njeri-Otieno, supporting PhD students worldwide with expert guidance and resources.">
+    <title>About Us - Resourceful Scholars' Hub</title>
+    
+    <!-- WordPress Meta Tags -->
+    <meta name="wp-template" content="about-page">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            /* Professional Academic Color Palette */
+            --primary-darkblue: #1e40af;
+            --primary-blue: #2563eb;
+            --secondary-skyblue: #3b82f6;
+            --accent-teal: #14b8a6;
+            --accent-light-teal: #5eead4;
+            --accent-gold: #fbbf24;
+            --light-gray: #f8fafc;
+            --medium-gray: #e2e8f0;
+            --dark-gray: #64748b;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --shadow-light: 0 4px 20px rgba(30, 64, 175, 0.08);
+            --shadow-medium: 0 8px 40px rgba(30, 64, 175, 0.12);
+            --shadow-heavy: 0 20px 60px rgba(30, 64, 175, 0.15);
+            
+            /* Animation Variables */
+            --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            border-radius: 5px;
+        }
+
+        /* Enhanced Navigation */
+        .rsh-navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(30, 64, 175, 0.1);
+            padding: 1.2rem 0;
+            transition: var(--transition-smooth);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .rsh-navbar.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: var(--shadow-light);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-darkblue), var(--secondary-skyblue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue) !important;
+        }
+
+        .btn-rsh-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-rsh-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+            color: white;
+        }
+
+        /* Enhanced Hero Section */
+        .about-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, 
+                rgba(30, 64, 175, 0.9) 0%, 
+                rgba(59, 130, 246, 0.85) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path fill="%23ffffff" fill-opacity="0.05" d="M0,0V600H1200V0ZM600,300A150,150,0,1,1,600,0,150,150,0,0,1,600,300Z"/></svg>');
+            color: white;
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .academic-shape {
+            position: absolute;
+            opacity: 0.1;
+        }
+
+        .academic-shape:nth-child(1) {
+            top: 10%;
+            right: 10%;
+            font-size: 8rem;
+            color: white;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .academic-shape:nth-child(2) {
+            bottom: 20%;
+            left: 5%;
+            font-size: 6rem;
+            color: var(--accent-light-teal);
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        .academic-shape:nth-child(3) {
+            top: 40%;
+            left: 15%;
+            font-size: 4rem;
+            color: var(--accent-teal);
+            animation: float 25s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(240deg);
+            }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 3D Founder Profile Card */
+        .founder-profile-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+        }
+
+        .founder-card {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: var(--shadow-heavy);
+            transform: rotateY(-2deg) rotateX(1deg);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(30, 64, 175, 0.1);
+            overflow: hidden;
+        }
+
+        .founder-profile-3d:hover .founder-card {
+            transform: rotateY(0) rotateX(0);
+        }
+
+        .founder-image-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 2rem;
+        }
+
+        .founder-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shine 3s infinite linear;
+            transform: rotate(45deg);
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .founder-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-light);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Mission Vision Values Cards */
+        .mvp-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            height: 100%;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mvp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .mvp-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--primary-blue);
+        }
+
+        .mvp-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .mvp-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--light-gray), white);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            box-shadow: var(--shadow-light);
+            transition: var(--transition-smooth);
+        }
+
+        .mvp-card:hover .mvp-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+        }
+
+        /* Stats Counter */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-darkblue), var(--primary-blue));
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, white, var(--accent-light-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Timeline Animation */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary-blue), var(--accent-teal));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: timelineAppear 0.6s forwards;
+        }
+
+        @keyframes timelineAppear {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-year {
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: var(--light-gray);
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        /* Values List with Animation */
+        .values-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .value-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition-smooth);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: valueAppear 0.6s forwards;
+        }
+
+        @keyframes valueAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        /* What We Offer Cards */
+        .offer-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-light);
+            border-left: 5px solid var(--primary-blue);
+            transition: var(--transition-smooth);
+            transform-origin: left center;
+        }
+
+        .offer-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-medium);
+            border-left-color: var(--accent-teal);
+        }
+
+        .offer-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--light-gray), white);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            transition: var(--transition-smooth);
+        }
+
+        .offer-card:hover .offer-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+        }
+
+        /* Enhanced CTA Section */
+        .about-cta {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-light-teal));
+            color: white;
+            padding: 5rem 0;
+            border-radius: 30px;
+            margin: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .cta-shape {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: morph 20s infinite linear;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+        }
+
+        .cta-shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .cta-shape:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: -5s;
+            width: 80px;
+            height: 80px;
+        }
+
+        .cta-shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -10s;
+            width: 120px;
+            height: 120px;
+        }
+
+        /* Enhanced Footer */
+        .rsh-footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-links a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light-teal);
+            transform: translateX(5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .founder-image-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .about-hero {
+                padding: 6rem 0 3rem;
+            }
+            
+            .founder-card {
+                padding: 2rem;
+            }
+            
+            .mvp-card, .offer-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .founder-image-container {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".rsh-navbar" data-bs-offset="100">
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg rsh-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap me-2"></i>
+                <span class="d-none d-sm-inline">Resourceful Scholars' Hub</span>
+                <span class="d-inline d-sm-none">RSH</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about-page.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog-categories.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="index.html#cta" class="btn btn-rsh-primary">
+                            <i class="fas fa-download me-2"></i>Free Planner
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section class="about-hero">
+        <div class="hero-bg-elements">
+            <div class="academic-shape">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="academic-shape">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="academic-shape">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="hero-title">Empowering the Next Generation of Scholars</h1>
+                    <p class="hero-subtitle">
+                        Founded by Grace Njeri-Otieno, Resourceful Scholars' Hub is dedicated to providing PhD students worldwide with the tools, guidance, and community support needed for academic excellence.
+                    </p>
+                    
+                    <div class="mt-4">
+                        <a href="#founder" class="btn btn-light btn-lg me-3">
+                            <i class="fas fa-user-circle me-2"></i>Meet Our Founder
+                        </a>
+                        <a href="#mission" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-bullseye me-2"></i>Our Mission
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-5 py-md-7">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                    <span class="badge bg-primary bg-gradient mb-3 px-3 py-2 rounded-pill">
+                        Our Journey
+                    </span>
+                    <h2 class="display-5 fw-bold mb-4">From Personal Experience to Global Impact</h2>
+                    <p class="lead text-muted mb-4">
+                        What started as a personal blog sharing research tips has evolved into a comprehensive platform serving thousands of scholars across 40+ countries.
+                    </p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item" style="animation-delay: 0.1s">
+                            <div class="timeline-year">2018</div>
+                            <h5 class="fw-bold mb-2">Foundation</h5>
+                            <p class="text-muted mb-0">Grace starts sharing PhD journey insights through personal blog posts</p>
+                        </div>
+                        
+                        <div class="timeline-item" style="animation-delay: 0.3s">
+                            <div class="timeline-year">2020</div>
+                            <h5 class="fw-bold mb-2">Community Growth</h5>
+                            <p class="text-muted mb-0">First 1,000 community members join the platform</p>
+                        </div>
+                        
+                        <div class="timeline-item" style="animation-delay: 0.5s">
+                            <div class="timeline-year">2023</div>
+                            <h5 class="fw-bold mb-2">Resource Expansion</h5>
+                            <p class="text-muted mb-0">Launch of comprehensive PhD Planner and video tutorial series</p>
+                        </div>
+                        
+                        <div class="timeline-item" style="animation-delay: 0.7s">
+                            <div class="timeline-year">2026</div>
+                            <h5 class="fw-bold mb-2">Global Reach</h5>
+                            <p class="text-muted mb-0">Serving 15,000+ scholars with 200+ resources across all disciplines</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="founder-profile-3d">
+                        <div class="founder-card">
+                            <div class="founder-image-container">
+                                <div class="founder-image">
+                                    <i class="fas fa-user-circle"></i>
+                                    <div class="founder-badge">
+                                        <i class="fas fa-medal me-1"></i>Founder
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <h3 class="fw-bold mb-2">Grace Njeri-Otieno</h3>
+                                <p class="text-primary fw-semibold mb-3">
+                                    <i class="fas fa-user-graduate me-1"></i>PhD Researcher & Educator
+                                </p>
+                                <p class="text-muted mb-4">
+                                    With over 10 years of academic experience, Grace understands firsthand the challenges PhD students face. Her mission is to make the journey more manageable and successful for everyone.
+                                </p>
+                                
+                                <div class="d-flex flex-wrap justify-content-center gap-3">
+                                    <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2">
+                                        <i class="fas fa-pen-fancy me-1"></i>Academic Writing
+                                    </span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2">
+                                        <i class="fas fa-chart-bar me-1"></i>Data Analysis
+                                    </span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2">
+                                        <i class="fas fa-lightbulb me-1"></i>Research Methodology
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission, Vision & Values -->
+    <section id="mission" class="py-5 py-md-7 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary bg-gradient mb-3 px-3 py-2 rounded-pill">
+                    Our Core
+                </span>
+                <h2 class="display-5 fw-bold mb-3">Mission, Vision & Values</h2>
+                <p class="lead text-muted">Guiding principles that shape everything we do</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mvp-card">
+                        <div class="mvp-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="fw-bold mb-3">Our Mission</h3>
+                        <p class="text-muted">
+                            To provide accessible, practical, and comprehensive resources that empower PhD students and early-career academics to achieve research excellence and thrive in their academic careers.
+                        </p>
+                        <div class="mt-4">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Accessibility</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Practicality</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Excellence</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mvp-card">
+                        <div class="mvp-icon">
+                            <i class="fas fa-telescope"></i>
+                        </div>
+                        <h3 class="fw-bold mb-3">Our Vision</h3>
+                        <p class="text-muted">
+                            To build a global community of resourceful scholars who support, inspire, and elevate one another in pursuit of groundbreaking research and academic achievement.
+                        </p>
+                        <div class="mt-4">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Community</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Innovation</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Global Impact</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="mvp-card">
+                        <div class="mvp-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="fw-bold mb-3">Our Values</h3>
+                        <p class="text-muted">
+                            Excellence, integrity, accessibility, community support, continuous learning, and empowerment through knowledge sharing and practical guidance.
+                        </p>
+                        <div class="mt-4">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Integrity</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Learning</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Empowerment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold mb-3">Our Impact in Numbers</h2>
+                <p class="lead opacity-90">Transforming PhD journeys worldwide</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number counter" data-target="15000">0</div>
+                    <div class="stat-label">Community Members</div>
+                    <div class="mt-3">
+                        <i class="fas fa-users fa-2x opacity-50"></i>
+                    </div>
+                </div>
+                
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number counter" data-target="200">0</div>
+                    <div class="stat-label">Resource Articles</div>
+                    <div class="mt-3">
+                        <i class="fas fa-file-alt fa-2x opacity-50"></i>
+                    </div>
+                </div>
+                
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number counter" data-target="50">0</div>
+                    <div class="stat-label">Video Tutorials</div>
+                    <div class="mt-3">
+                        <i class="fas fa-video fa-2x opacity-50"></i>
+                    </div>
+                </div>
+                
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-number counter" data-target="40">0</div>
+                    <div class="stat-label">Countries Reached</div>
+                    <div class="mt-3">
+                        <i class="fas fa-globe-americas fa-2x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="py-5 py-md-7">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h2 class="display-5 fw-bold mb-4">What We Stand For</h2>
+                    <p class="lead text-muted mb-5">
+                        Our values guide every resource we create and every interaction we have with our community.
+                    </p>
+                    
+                    <ul class="values-list">
+                        <li class="value-item" style="animation-delay: 0.1s">
+                            <div class="value-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Practical Excellence</h5>
+                                <p class="text-muted mb-0">We believe in providing actionable strategies that directly impact your research and academic career.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="value-item" style="animation-delay: 0.2s">
+                            <div class="value-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Inclusive Community</h5>
+                                <p class="text-muted mb-0">Regardless of your field, institution, or background, you belong here and will find support.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="value-item" style="animation-delay: 0.3s">
+                            <div class="value-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Evidence-Based Guidance</h5>
+                                <p class="text-muted mb-0">All our recommendations are grounded in research, experience, and proven methodologies.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <ul class="values-list">
+                        <li class="value-item" style="animation-delay: 0.4s">
+                            <div class="value-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Lifelong Learning</h5>
+                                <p class="text-muted mb-0">We embrace continuous improvement and stay updated with latest research trends and best practices.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="value-item" style="animation-delay: 0.5s">
+                            <div class="value-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Ethical Research</h5>
+                                <p class="text-muted mb-0">We promote responsible research conduct and academic integrity in all endeavors.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="value-item" style="animation-delay: 0.6s">
+                            <div class="value-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Collaborative Growth</h5>
+                                <p class="text-muted mb-0">Together, we achieve more. Community support and shared knowledge fuel academic success.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer -->
+    <section class="py-5 py-md-7 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary bg-gradient mb-3 px-3 py-2 rounded-pill">
+                    Our Resources
+                </span>
+                <h2 class="display-5 fw-bold mb-3">What We Offer</h2>
+                <p class="lead text-muted">Comprehensive support for every stage of your academic journey</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="offer-card">
+                        <div class="offer-icon">
+                            <i class="fas fa-pencil-alt"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Academic Writing Guides</h4>
+                        <p class="text-muted mb-0">
+                            Comprehensive tutorials on thesis writing, research proposals, journal article submissions, and conference presentations with practical examples.
+                        </p>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Data Analysis Tutorials</h4>
+                        <p class="text-muted mb-0">
+                            Step-by-step guides for SPSS, R, Python, and other statistical software to help you analyze your research data effectively with real datasets.
+                        </p>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-icon">
+                            <i class="fas fa-flask-vial"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Research Methodology</h4>
+                        <p class="text-muted mb-0">
+                            Deep dives into research design, literature reviews, qualitative and quantitative methods, and research ethics with case studies.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="offer-card">
+                        <div class="offer-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Video Content Library</h4>
+                        <p class="text-muted mb-0">
+                            Our YouTube channel features tutorials, interviews with successful researchers, and practical demonstrations you can follow along with in real-time.
+                        </p>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Community Support</h4>
+                        <p class="text-muted mb-0">
+                            Connect with thousands of PhD students and academics who understand your journey and can offer advice, support, and encouragement.
+                        </p>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Productivity Tools</h4>
+                        <p class="text-muted mb-0">
+                            Templates, checklists, and planning tools designed specifically for academic research management and time optimization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced CTA Section -->
+    <section class="about-cta">
+        <div class="cta-shapes">
+            <div class="cta-shape"></div>
+            <div class="cta-shape"></div>
+            <div class="cta-shape"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="zoom-in">
+                    <h2 class="display-4 fw-bold mb-4">Join Our Community of Scholars</h2>
+                    <p class="lead mb-5 opacity-90">
+                        Start your journey toward academic excellence with our free resources and supportive community.
+                    </p>
+                    
+                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                        <a href="index.html#cta" class="btn btn-light btn-lg px-5">
+                            <i class="fas fa-download me-2"></i>Get Free Planner
+                        </a>
+                        <a href="services.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-arrow-right me-2"></i>Explore Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="rsh-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand text-white mb-3 d-inline-block" href="index.html">
+                        <i class="fas fa-graduation-cap me-2"></i>
+                        Resourceful Scholars' Hub
+                    </a>
+                    <p class="text-light opacity-75 mb-4">
+                        Empowering PhD students worldwide with professional planning tools and academic resources.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white opacity-75 hover-opacity-100">
+                            <i class="fab fa-youtube fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white opacity-75 hover-opacity-100">
+                            <i class="fab fa-twitter fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white opacity-75 hover-opacity-100">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white opacity-75 hover-opacity-100">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about-page.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="blog-categories.html">Blog</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-white mb-4">Resources</h5>
+                    <div class="footer-links">
+                        <a href="resources.html">Free Tools</a>
+                        <a href="index.html#cta">PhD Planner</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="text-white mb-4">Connect With Us</h5>
+                    <div class="footer-links">
+                        <a href="mailto:info@resourcefulscholarshub.com">
+                            <i class="fas fa-envelope me-2"></i>info@resourcefulscholarshub.com
+                        </a>
+                        <a href="https://resourcefulscholarshub.com" target="_blank">
+                            <i class="fas fa-globe me-2"></i>resourcefulscholarshub.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-5 opacity-25">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light opacity-75">
+                        &copy; 2026 Resourceful Scholars' Hub. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-light opacity-75">
+                        Founded by Grace Njeri-Otieno
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.rsh-navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Counter animation
+        function animateCounter() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounter, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+        
+        // Start counter when in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateCounter, 500);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelectorAll('.counter').forEach(counter => {
+            observer.observe(counter.closest('.row'));
+        });
+        
+        // Timeline item animations
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animationDelay = `${index * 0.1}s`;
+                        entry.target.style.animationPlayState = 'running';
+                    }, 100);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            timelineObserver.observe(item);
+        });
+        
+        // Value item animations
+        const valuesObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animationDelay = `${index * 0.1}s`;
+                        entry.target.style.animationPlayState = 'running';
+                    }, 100);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        document.querySelectorAll('.value-item').forEach(item => {
+            valuesObserver.observe(item);
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Founder card 3D effect on mouse move
+        const founderCard = document.querySelector('.founder-card');
+        if (founderCard) {
+            founderCard.addEventListener('mousemove', (e) => {
+                const rect = founderCard.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateY = ((x - centerX) / centerX) * 2;
+                const rotateX = ((centerY - y) / centerY) * 2;
+                
+                founderCard.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+            });
+            
+            founderCard.addEventListener('mouseleave', () => {
+                founderCard.style.transform = 'perspective(1000px) rotateY(0) rotateX(0)';
+            });
+        }
+    </script>
+</body>
+</html>

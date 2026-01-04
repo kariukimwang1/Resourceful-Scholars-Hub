@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resourceful Scholars' Hub - Empowering PhD students with comprehensive resources, guides, and tools for academic success.">
+    <title>Resourceful Scholars' Hub - Home</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #14b8a6;
+            --accent-purple: #8b5cf6;
+            --accent-amber: #f59e0b;
+            --dark-gray: #1f2937;
+            --medium-gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --sidebar-width: 280px;
+            --sidebar-collapsed: 70px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            background-color: var(--light-gray);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+
+        /* Main Layout */
+        .main-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: linear-gradient(180deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 1000;
+            transition: var(--transition);
+            overflow-y: auto;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar.collapsed {
+            width: var(--sidebar-collapsed);
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .sidebar-brand:hover {
+            opacity: 0.9;
+        }
+
+        .sidebar-brand i {
+            font-size: 1.8rem;
+        }
+
+        .sidebar-brand-text {
+            transition: var(--transition);
+        }
+
+        .sidebar.collapsed .sidebar-brand-text {
+            display: none;
+        }
+
+        .toggle-sidebar {
+            position: absolute;
+            right: -15px;
+            top: 20px;
+            width: 30px;
+            height: 30px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .toggle-sidebar:hover {
+            transform: scale(1.1);
+        }
+
+        .sidebar-menu {
+            padding: 1.5rem 0;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-left: 3px solid var(--accent-teal);
+        }
+
+        .nav-link i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .nav-text {
+            transition: var(--transition);
+        }
+
+        .sidebar.collapsed .nav-text {
+            display: none;
+        }
+
+        .sidebar.collapsed .nav-link {
+            justify-content: center;
+            padding: 0.75rem;
+        }
+
+        .sidebar-footer {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .sidebar-footer p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .sidebar.collapsed .sidebar-footer p {
+            display: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            transition: var(--transition);
+        }
+
+        .main-content.expanded {
+            margin-left: var(--sidebar-collapsed);
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        .search-bar {
+            position: relative;
+            max-width: 400px;
+        }
+
+        .search-input {
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--medium-gray);
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-planner {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-purple));
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-planner:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(20, 184, 166, 0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(59, 130, 246, 0.8)), 
+                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-purple));
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(20, 184, 166, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--medium-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 4rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .feature-description {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: var(--light-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+        }
+
+        .resource-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-body {
+            padding: 1.5rem;
+        }
+
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-list i {
+            color: var(--accent-teal);
+        }
+
+        /* Blog Preview */
+        .blog-section {
+            padding: 4rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-thumbnail {
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 3rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+
+        .blog-category {
+            background: var(--accent-teal);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .blog-excerpt {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .form-input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-button {
+            padding: 1rem 2rem;
+            background: var(--accent-teal);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-button:hover {
+            background: #0d9488;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: #d1d5db;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #374151;
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .toggle-sidebar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .top-nav {
+                padding: 1rem;
+            }
+            
+            .search-bar {
+                max-width: 200px;
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stats-grid,
+            .features-grid,
+            .resources-grid,
+            .blog-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-brand">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span class="sidebar-brand-text">Scholars' Hub</span>
+                </a>
+            </div>
+            
+            <div class="toggle-sidebar" id="toggleSidebar">
+                <i class="fas fa-chevron-left" id="toggleIcon"></i>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="blog-categories.html" class="nav-link">
+                        <i class="fas fa-blog"></i>
+                        <span class="nav-text">Blog & Articles</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="resources.html" class="nav-link">
+                        <i class="fas fa-tools"></i>
+                        <span class="nav-text">Tools & Resources</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="tutorials.html" class="nav-link">
+                        <i class="fas fa-video"></i>
+                        <span class="nav-text">Video Tutorials</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="templates.html" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="nav-text">Templates</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="planner.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span class="nav-text">PhD Planner</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="courses.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="nav-text">Courses</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span class="nav-text">Community</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="about-page.html" class="nav-link">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="nav-text">About Us</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="services.html" class="nav-link">
+                        <i class="fas fa-concierge-bell"></i>
+                        <span class="nav-text">Services</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span class="nav-text">Contact</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-question-circle"></i>
+                        <span class="nav-text">FAQ</span>
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <p>© 2024 Resourceful Scholars' Hub</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Top Navigation -->
+            <div class="top-nav">
+                <div class="top-nav-left">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" placeholder="Search resources, articles...">
+                    </div>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="planner.html" class="btn-planner">
+                        <i class="fas fa-download"></i>
+                        Get Free Planner
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <section class="hero-section animate-fade-in">
+                <div class="container">
+                    <h1 class="hero-title">Empowering Your PhD Journey</h1>
+                    <p class="hero-subtitle">
+                        Comprehensive resources, expert guides, and powerful tools designed specifically for PhD students. 
+                        From thesis writing to data analysis, we've got you covered every step of the way.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#resources" class="btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            Explore Resources
+                        </a>
+                        <a href="planner.html" class="btn-secondary">
+                            <i class="fas fa-calendar-alt"></i>
+                            Get Free Planner
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">5000+</div>
+                            <div class="stat-label">PhD Students Empowered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Comprehensive Articles</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Free Templates & Tools</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Resource Access</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <div class="container">
+                    <h2 class="section-title">Why Choose Our Platform</h2>
+                    <div class="features-grid">
+                        <div class="feature-card animate-fade-in">
+                            <div class="feature-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="feature-title">PhD-Focused Content</h3>
+                            <p class="feature-description">
+                                All resources are specifically tailored for PhD students, addressing unique challenges and needs of doctoral research.
+                            </p>
+                        </div>
+                        
+                        <div class="feature-card animate-fade-in">
+                            <div class="feature-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3 class="feature-title">Practical Tools</h3>
+                            <p class="feature-description">
+                                Download ready-to-use templates, planners, and checklists that simplify your research workflow.
+                            </p>
+                        </div>
+                        
+                        <div class="feature-card animate-fade-in">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="feature-title">Data Analysis Guides</h3>
+                            <p class="feature-description">
+                                Step-by-step tutorials for SPSS, R, Python, and other statistical tools used in academic research.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resources Section -->
+            <section id="resources" class="resources-section">
+                <div class="container">
+                    <h2 class="section-title">Featured Resources</h2>
+                    <div class="resources-grid">
+                        <div class="resource-card animate-fade-in">
+                            <div class="resource-header">
+                                <h3 class="resource-title">PhD Student Planner</h3>
+                                <p>Free Download</p>
+                            </div>
+                            <div class="resource-body">
+                                <ul class="resource-list">
+                                    <li><i class="fas fa-check-circle"></i> Yearly/Monthly/Weekly Planning</li>
+                                    <li><i class="fas fa-check-circle"></i> Goal Tracking Templates</li>
+                                    <li><i class="fas fa-check-circle"></i> Research Progress Tracker</li>
+                                    <li><i class="fas fa-check-circle"></i> Literature Review Organizer</li>
+                                </ul>
+                                <a href="planner.html" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">
+                                    Download Now
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-card animate-fade-in">
+                            <div class="resource-header">
+                                <h3 class="resource-title">Writing Templates</h3>
+                                <p>Premium Collection</p>
+                            </div>
+                            <div class="resource-body">
+                                <ul class="resource-list">
+                                    <li><i class="fas fa-file-alt"></i> Thesis Proposal Template</li>
+                                    <li><i class="fas fa-file-alt"></i> Literature Review Template</li>
+                                    <li><i class="fas fa-file-alt"></i> Journal Article Template</li>
+                                    <li><i class="fas fa-file-alt"></i> Conference Abstract Template</li>
+                                </ul>
+                                <a href="templates.html" class="btn-secondary" style="width: 100%; text-align: center; margin-top: 1rem;">
+                                    View All Templates
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-card animate-fade-in">
+                            <div class="resource-header">
+                                <h3 class="resource-title">Video Tutorials</h3>
+                                <p>Step-by-Step Guides</p>
+                            </div>
+                            <div class="resource-body">
+                                <ul class="resource-list">
+                                    <li><i class="fas fa-play-circle"></i> SPSS Complete Course</li>
+                                    <li><i class="fas fa-play-circle"></i> R Programming Basics</li>
+                                    <li><i class="fas fa-play-circle"></i> Python for Research</li>
+                                    <li><i class="fas fa-play-circle"></i> Data Visualization</li>
+                                </ul>
+                                <a href="tutorials.html" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">
+                                    Watch Tutorials
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Preview -->
+            <section class="blog-section">
+                <div class="container">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="section-title mb-0">Latest Articles</h2>
+                        <a href="blog-categories.html" class="btn-secondary">
+                            View All Articles
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="blog-grid">
+                        <div class="blog-card animate-fade-in">
+                            <div class="blog-thumbnail">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span class="blog-category">Writing</span>
+                                    <span>Dec 15, 2024</span>
+                                </div>
+                                <h3 class="blog-title">Comprehensive Guidelines for Writing a PhD Thesis Proposal</h3>
+                                <p class="blog-excerpt">
+                                    Learn the essential components of a compelling thesis proposal, from defining your research question to creating a realistic timeline.
+                                </p>
+                                <a href="#" class="read-more">Read Article →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-card animate-fade-in">
+                            <div class="blog-thumbnail">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span class="blog-category">Data Analysis</span>
+                                    <span>Dec 10, 2024</span>
+                                </div>
+                                <h3 class="blog-title">SPSS Tutorial: Advanced Statistical Analysis Techniques</h3>
+                                <p class="blog-excerpt">
+                                    Master advanced SPSS techniques including regression analysis, factor analysis, and multivariate statistics for your research.
+                                </p>
+                                <a href="#" class="read-more">Read Article →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-card animate-fade-in">
+                            <div class="blog-thumbnail">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span class="blog-category">Career</span>
+                                    <span>Dec 5, 2024</span>
+                                </div>
+                                <h3 class="blog-title">Academic Career Development: From PhD to Professor</h3>
+                                <p class="blog-excerpt">
+                                    Strategic guidance on navigating the academic job market, building your research portfolio, and securing tenure-track positions.
+                                </p>
+                                <a href="#" class="read-more">Read Article →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <div class="container">
+                    <h2 class="cta-title">Start Your Success Journey Today</h2>
+                    <p class="cta-subtitle">
+                        Join thousands of PhD students who have transformed their research journey with our comprehensive resources and expert guidance.
+                    </p>
+                    <div class="cta-form">
+                        <form id="newsletterForm">
+                            <div class="form-group">
+                                <input type="email" class="form-input" placeholder="Enter your email address" required>
+                                <button type="submit" class="form-button">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Get Started
+                                </button>
+                            </div>
+                            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+                                <i class="fas fa-lock"></i> We respect your privacy. No spam, ever.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div class="footer-grid">
+                        <div class="footer-brand">
+                            <h3><i class="fas fa-graduation-cap"></i> Resourceful Scholars' Hub</h3>
+                            <p>Empowering the next generation of researchers with comprehensive resources, expert guidance, and powerful tools for academic success.</p>
+                            <div class="social-links">
+                                <a href="https://www.youtube.com/channel/UCGupft-xzHJ85QL95o2I93A" title="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-links">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about-page.html">About Us</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="blog-categories.html">Blog</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-links">
+                            <h4>Resources</h4>
+                            <ul>
+                                <li><a href="planner.html">PhD Planner</a></li>
+                                <li><a href="templates.html">Templates</a></li>
+                                <li><a href="tutorials.html">Tutorials</a></li>
+                                <li><a href="tools.html">Research Tools</a></li>
+                                <li><a href="courses.html">Online Courses</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-links">
+                            <h4>Legal</h4>
+                            <ul>
+                                <li><a href="privacy.html">Privacy Policy</a></li>
+                                <li><a href="terms.html">Terms of Service</a></li>
+                                <li><a href="cookies.html">Cookie Policy</a></li>
+                                <li><a href="disclaimer.html">Disclaimer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom">
+                        <p>&copy; 2024 Resourceful Scholars' Hub. All rights reserved. Created by Grace Njeri-Otieno.</p>
+                        <p>
+                            <a href="privacy.html">Privacy Policy</a> | 
+                            <a href="terms.html">Terms of Service</a> | 
+                            <a href="contact.html">Contact Us</a>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Sidebar Toggle Functionality
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        const toggleSidebar = document.getElementById('toggleSidebar');
+        const toggleIcon = document.getElementById('toggleIcon');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        
+        let isCollapsed = false;
+        
+        // Desktop toggle functionality
+        toggleSidebar.addEventListener('click', function() {
+            isCollapsed = !isCollapsed;
+            
+            if (isCollapsed) {
+                sidebar.classList.add('collapsed');
+                mainContent.classList.add('expanded');
+                toggleIcon.classList.remove('fa-chevron-left');
+                toggleIcon.classList.add('fa-chevron-right');
+            } else {
+                sidebar.classList.remove('collapsed');
+                mainContent.classList.remove('expanded');
+                toggleIcon.classList.remove('fa-chevron-right');
+                toggleIcon.classList.add('fa-chevron-left');
+            }
+        });
+        
+        // Mobile menu functionality
+        mobileMenuBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const isClickInsideSidebar = sidebar.contains(event.target);
+            const isClickOnMobileMenuBtn = mobileMenuBtn.contains(event.target);
+            
+            if (!isClickInsideSidebar && !isClickOnMobileMenuBtn && window.innerWidth <= 1024) {
+                sidebar.classList.remove('active');
+            }
+        });
+        
+        // Newsletter Form Submission
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            if (email && email.includes('@')) {
+                // Simulate form submission
+                this.querySelector('input[type="email"]').value = '';
+                alert('Thank you for subscribing! Check your email for your free PhD Planner download link.');
+                
+                // In real implementation, you would:
+                // 1. Send data to your email service (Mailchimp, ConvertKit, etc.)
+                // 2. Trigger automated welcome email
+                // 3. Add user to your mailing list
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value.trim();
+                if (searchTerm) {
+                    // In real implementation, this would redirect to search results
+                    alert(`Searching for: "${searchTerm}"`);
+                    // window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+                }
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with animate-fade-in class
+        document.querySelectorAll('.animate-fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Initialize tooltips for social icons
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

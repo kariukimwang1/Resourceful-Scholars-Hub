@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our comprehensive blog categories - Writing, Productivity, Data Analysis, and more for PhD students">
+    <title>Blog - Resourceful Scholars' Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #14b8a6;
+            --warm-gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue) !important;
+        }
+
+        .nav-link {
+            color: var(--warm-gray) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-blue) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-section {
+            background: var(--light-gray);
+            padding: 2rem 0;
+        }
+
+        .search-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-form input {
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-form input:focus {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .categories-section {
+            padding: 5rem 0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-teal));
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-count {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .category-body {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-body p {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-link {
+            color: var(--secondary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+        }
+
+        .category-link:hover {
+            color: var(--primary-blue);
+            transform: translateX(5px);
+        }
+
+        .featured-posts {
+            background: var(--light-gray);
+            padding: 5rem 0;
+            margin: 3rem 0;
+        }
+
+        .featured-title {
+            text-align: center;
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .post-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .post-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .post-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .post-category {
+            display: inline-block;
+            background-color: var(--accent-teal);
+            color: var(--white);
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .post-title {
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .post-excerpt {
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--secondary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+        }
+
+        .read-more:hover {
+            color: var(--primary-blue);
+            transform: translateX(5px);
+        }
+
+        .btn-view-all {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 0.85rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-view-all:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        footer {
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        footer h5 {
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--secondary-blue);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #374151;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .post-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap"></i> Resourceful Scholars' Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-page.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog-categories.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Our Blog</h1>
+            <p>Insights, guides, and tutorials to support your academic journey and research excellence</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <form class="search-form" onsubmit="handleSearch(event)">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search articles, tutorials, guides..." id="searchInput" aria-label="Search blog">
+                    <button class="btn btn-primary" type="submit" style="background-color: var(--secondary-blue); border: none;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--primary-blue); font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem;">Browse by Category</h2>
+
+            <div class="category-grid">
+                <!-- Writing Corner -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <h3 class="category-title">Writing Corner</h3>
+                        <p class="category-count">35+ articles</p>
+                    </div>
+                    <div class="category-body">
+                        <p>Master academic writing from thesis proposals to journal articles. Explore comprehensive guides on structuring arguments, crafting abstracts, and perfecting your academic voice.</p>
+                        <a href="#" class="category-link">Explore Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Productivity & Tools -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="category-title">Productivity Tips & Tools</h3>
+                        <p class="category-count">28+ articles</p>
+                    </div>
+                    <div class="category-body">
+                        <p>Optimize your research workflow with practical productivity strategies. Discover tools, time management techniques, and organizational systems that successful researchers use.</p>
+                        <a href="#" class="category-link">Explore Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Data Analysis -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="category-title">Data Collection & Analysis</h3>
+                        <p class="category-count">42+ tutorials</p>
+                    </div>
+                    <div class="category-body">
+                        <p>Step-by-step tutorials for SPSS, R, Python, and other statistical tools. Learn data analysis techniques, statistical concepts, and visualization methods.</p>
+                        <a href="#" class="category-link">Explore Tutorials <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Research Methods -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-flask-vial"></i>
+                        </div>
+                        <h3 class="category-title">Research Methodology</h3>
+                        <p class="category-count">22+ guides</p>
+                    </div>
+                    <div class="category-body">
+                        <p>Deep dives into research design, literature reviews, qualitative and quantitative methods. Learn to design rigorous research and select appropriate methodologies.</p>
+                        <a href="#" class="category-link">Explore Guides <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Presentations -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-presentation"></i>
+                        </div>
+                        <h3 class="category-title">Presentations & Conferences</h3>
+                        <p class="category-count">18+ articles</p>
+                    </div>
+                    <div class="category-body">
+                        <p>Master the art of presenting your research. Learn presentation skills, conference tips, abstract writing, and how to handle Q&A sessions effectively.</p>
+                        <a href="#" class="category-link">Explore Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Career Development -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="category-title">Career Development</h3>
+                        <p class="category-count">16+ articles</p>
+                    </div>
+                    <div class="category-body">
+                        <p>Navigate your academic career path. Explore postdoc opportunities, career planning, networking strategies, and transitioning from PhD to professional roles.</p>
+                        <a href="#" class="category-link">Explore Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Posts -->
+    <section class="featured-posts">
+        <div class="container">
+            <h2 class="featured-title">Featured Articles</h2>
+
+            <div class="post-grid">
+                <!-- Post 1 -->
+                <div class="post-card">
+                    <div class="post-thumbnail">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Writing</span>
+                            <span>Dec 15, 2024</span>
+                        </div>
+                        <h3 class="post-title">Comprehensive Guidelines for Writing a PhD Thesis Proposal</h3>
+                        <p class="post-excerpt">Learn the essential components of a compelling thesis proposal, from defining your research question to creating a timeline. This guide includes a free checklist for PhD students.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="post-card">
+                    <div class="post-thumbnail">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Presentations</span>
+                            <span>Dec 10, 2024</span>
+                        </div>
+                        <h3 class="post-title">PhD Thesis Proposal Defense: Common Questions and Feedback</h3>
+                        <p class="post-excerpt">Prepare for your proposal defense with insights into common questions, evaluation criteria, and strategies for handling challenging feedback from your committee.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="post-card">
+                    <div class="post-thumbnail">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Data Analysis</span>
+                            <span>Dec 5, 2024</span>
+                        </div>
+                        <h3 class="post-title">SPSS Tutorial #12: Partial Correlation Analysis</h3>
+                        <p class="post-excerpt">Master partial correlation analysis in SPSS. Learn how to control for confounding variables and interpret results in your research context.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 4 -->
+                <div class="post-card">
+                    <div class="post-thumbnail">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Data Analysis</span>
+                            <span>Nov 28, 2024</span>
+                        </div>
+                        <h3 class="post-title">SPSS Tutorial #11: Correlation Analysis Guide</h3>
+                        <p class="post-excerpt">Comprehensive guide to Pearson and Spearman correlation analysis. Learn when to use each method and how to interpret correlation coefficients in SPSS.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 5 -->
+                <div class="post-card">
+                    <div class="post-thumbnail">
+                        <i class="fas fa-bell-curve"></i>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Data Analysis</span>
+                            <span>Nov 20, 2024</span>
+                        </div>
+                        <h3 class="post-title">How to Check for Normality of Data in SPSS</h3>
+                        <p class="post-excerpt">Understand why normality matters and learn multiple methods to test for normality in your datasets including visual and statistical approaches.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 6 -->
+                <div class="post-card">
+                    <div class="post-thumbnail">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Data Analysis</span>
+                            <span>Nov 15, 2024</span>
+                        </div>
+                        <h3 class="post-title">How to Check for and Deal with Outliers in SPSS</h3>
+                        <p class="post-excerpt">Identify outliers in your data and learn practical strategies for handling them appropriately without compromising your analysis integrity.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn-view-all">View All Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <div class="container">
+        <div class="cta-section">
+            <h2>Never Miss an Update</h2>
+            <p>Subscribe to our newsletter for the latest articles, tutorials, and resources delivered directly to your inbox.</p>
+            <form onsubmit="handleNewsletter(event)" style="max-width: 500px; margin: 0 auto;">
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Enter your email" required style="padding: 0.75rem 1rem;">
+                    <button class="btn btn-light" type="submit" style="color: var(--primary-blue); font-weight: 600;">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <h5>Resourceful Scholars' Hub</h5>
+                    <p>Empowering the next generation of researchers and academics worldwide.</p>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-page.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h5>Resources</h5>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="blog-categories.html">Blog</a></li>
+                        <li><a href="resources.html">Free Tools</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/channel/UCGupft-xzHJ85QL95o2I93A" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: #4b5563;">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2026 Resourceful Scholars' Hub. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function handleSearch(event) {
+            event.preventDefault();
+            const searchTerm = document.getElementById('searchInput').value;
+            console.log('[v0] Searching for:', searchTerm);
+            // Redirect to search results or show message
+            alert('Search functionality: ' + searchTerm);
+        }
+
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            console.log('[v0] Newsletter subscription:', email);
+            alert('Thank you for subscribing! Check your email for confirmation.');
+        }
+    </script>
+</body>
+</html>

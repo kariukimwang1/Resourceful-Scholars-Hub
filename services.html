@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive services for PhD students - writing guides, data analysis, research methodology, and more">
+    <title>Services - Resourceful Scholars' Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #14b8a6;
+            --warm-gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --danger-red: #ef4444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue) !important;
+        }
+
+        .nav-link {
+            color: var(--warm-gray) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 5rem 0;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--accent-teal);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-top-color: var(--secondary-blue);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            color: var(--secondary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+        }
+
+        .service-link:hover {
+            color: var(--primary-blue);
+            transform: translateX(5px);
+        }
+
+        .service-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        .detailed-services {
+            background: var(--light-gray);
+            padding: 5rem 0;
+        }
+
+        .service-detail {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .service-detail h3 {
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail h4 {
+            color: var(--secondary-blue);
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            color: var(--warm-gray);
+            line-height: 1.7;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--secondary-blue);
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background-color: var(--danger-red);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--secondary-blue);
+            font-weight: 800;
+            margin: 1rem 0;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 0.85rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+            color: var(--white);
+        }
+
+        .btn-secondary-custom {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-secondary-custom:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        footer {
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        footer h5 {
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--secondary-blue);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #374151;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap"></i> Resourceful Scholars' Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-page.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog-categories.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive resources designed to support every stage of your PhD journey and academic career</p>
+        </div>
+    </section>
+
+    <!-- Main Services Grid -->
+    <div class="container">
+        <div class="services-grid" style="padding: 5rem 0;">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-pen-fancy"></i>
+                </div>
+                <h3>Academic Writing</h3>
+                <p>Master the art of academic writing with comprehensive guides on thesis proposals, research papers, journal articles, and conference abstracts. Our step-by-step tutorials will help you communicate your research effectively.</p>
+                <a href="#writing" class="service-link">Explore Writing Guides <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Data Analysis Tutorials</h3>
+                <p>Learn statistical analysis using SPSS, R, Python, and more. Our detailed tutorials cover everything from basic statistics to advanced analysis techniques, making complex concepts easy to understand and apply.</p>
+                <a href="#data" class="service-link">View Data Resources <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-flask-vial"></i>
+                </div>
+                <h3>Research Methodology</h3>
+                <p>Understand research design, literature reviews, qualitative and quantitative methods, and research ethics. We provide practical guidance on selecting and implementing the right methodology for your research.</p>
+                <a href="#methodology" class="service-link">Methodology Guides <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>Video Tutorials</h3>
+                <p>Learn visually through our comprehensive video library. Subscribe to our YouTube channel for step-by-step tutorials, webinars, and expert interviews that you can watch at your own pace.</p>
+                <a href="https://www.youtube.com/channel/UCGupft-xzHJ85QL95o2I93A" class="service-link" target="_blank">Watch Videos <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Community Support</h3>
+                <p>Connect with thousands of PhD students and academics worldwide. Share experiences, ask questions, and receive support from peers who understand the unique challenges of doctoral research.</p>
+                <a href="contact.html" class="service-link">Join Community <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3>Free Resources & Tools</h3>
+                <p>Access our collection of free downloadable resources including checklists, templates, guides, and tools to streamline your research and academic processes.</p>
+                <a href="resources.html" class="service-link">Download Resources <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Services Section -->
+    <section class="detailed-services">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--primary-blue); font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem;">Service Details</h2>
+
+            <div id="writing" class="service-detail">
+                <h3><i class="fas fa-pen-fancy"></i> Academic Writing Excellence</h3>
+                <p>Writing is at the heart of academic success. Whether you're crafting your thesis proposal, writing research papers, or preparing journal submissions, our comprehensive guides provide clear, actionable advice.</p>
+
+                <h4>Topics Covered:</h4>
+                <ul class="feature-list">
+                    <li>PhD Thesis Proposal Writing - Structure, content, and defense preparation</li>
+                    <li>Literature Review Strategies - Comprehensive approaches to reviewing existing research</li>
+                    <li>Research Paper Writing - From concept to publication</li>
+                    <li>Journal Article Submission - Selecting journals and preparing manuscripts</li>
+                    <li>Conference Abstract Writing - Creating compelling abstracts that stand out</li>
+                    <li>Thesis Defense Preparation - Anticipating questions and presenting confidently</li>
+                    <li>Academic Writing Style - Grammar, clarity, and professional communication</li>
+                </ul>
+
+                <h4>Who Benefits:</h4>
+                <p>PhD students at any stage, master's students, early-career researchers, and academics looking to publish their research.</p>
+            </div>
+
+            <div id="data" class="service-detail">
+                <h3><i class="fas fa-chart-bar"></i> Data Analysis & Statistics</h3>
+                <p>Understanding and analyzing your research data is crucial to drawing meaningful conclusions. Our detailed tutorials demystify statistical analysis and help you choose the right tools and methods.</p>
+
+                <h4>Topics Covered:</h4>
+                <ul class="feature-list">
+                    <li>SPSS Tutorials - Complete guides for all major statistical analyses</li>
+                    <li>R Programming - Data analysis and visualization with R</li>
+                    <li>Python for Data Science - Statistical analysis using Python</li>
+                    <li>Descriptive Statistics - Understanding your data fundamentals</li>
+                    <li>Hypothesis Testing - t-tests, ANOVA, correlation analysis</li>
+                    <li>Regression Analysis - Linear and multiple regression techniques</li>
+                    <li>Data Visualization - Creating meaningful charts and graphics</li>
+                    <li>Qualitative Data Analysis - NVivo, ATLAS.ti, and manual methods</li>
+                    <li>Mixed Methods Analysis - Integrating qualitative and quantitative data</li>
+                </ul>
+
+                <h4>Who Benefits:</h4>
+                <p>Researchers working with quantitative data, those learning statistical software for the first time, and students seeking to strengthen their data analysis skills.</p>
+            </div>
+
+            <div id="methodology" class="service-detail">
+                <h3><i class="fas fa-flask-vial"></i> Research Methodology Guidance</h3>
+                <p>Your research methodology is the foundation of your work. We provide comprehensive guidance on selecting, designing, and implementing research approaches appropriate for your research questions.</p>
+
+                <h4>Topics Covered:</h4>
+                <ul class="feature-list">
+                    <li>Research Design Selection - Choosing between quantitative, qualitative, and mixed methods</li>
+                    <li>Literature Review Conduct - Systematic and narrative review approaches</li>
+                    <li>Qualitative Research Methods - Interviews, focus groups, ethnography, case studies</li>
+                    <li>Quantitative Research Methods - Surveys, experiments, observational studies</li>
+                    <li>Sampling Strategies - Selecting participants and sampling techniques</li>
+                    <li>Data Collection Methods - Interviews, questionnaires, observations</li>
+                    <li>Research Ethics - IRB approval, informed consent, data protection</li>
+                    <li>Validity & Reliability - Ensuring quality in your research</li>
+                </ul>
+
+                <h4>Who Benefits:</h4>
+                <p>PhD students developing their research proposal, researchers transitioning to new methodologies, and students seeking to strengthen methodological rigor.</p>
+            </div>
+
+            <div class="service-detail">
+                <h3><i class="fas fa-presentation"></i> Presentation & Dissemination</h3>
+                <p>Sharing your research through presentations and conferences is vital for academic growth. Learn how to present your work effectively and engage with the academic community.</p>
+
+                <h4>Topics Covered:</h4>
+                <ul class="feature-list">
+                    <li>Conference Presentation Skills - Crafting engaging presentations</li>
+                    <li>Slides Design - Creating visually compelling presentation materials</li>
+                    <li>Oral Presentation Techniques - Delivery, pacing, and audience engagement</li>
+                    <li>Handling Q&A - Responding confidently to questions</li>
+                    <li>Poster Presentation Design - Creating professional research posters</li>
+                    <li>Publishing Your Research - Journal selection and submission process</li>
+                </ul>
+
+                <h4>Who Benefits:</h4>
+                <p>Researchers preparing for conference presentations, students designing research posters, and academics seeking to publish their work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <div class="container">
+        <div class="cta-section">
+            <h2>Start Your Resource Journey Today</h2>
+            <p>Choose from our comprehensive services and take the next step in your academic career. Join thousands of researchers who are already benefiting from our resources.</p>
+            <button class="btn btn-primary btn-lg" onclick="window.location.href='blog-posts-page.html'">
+                <i class="fas fa-book me-2"></i>Explore Blog Posts
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <h5>Resourceful Scholars' Hub</h5>
+                    <p>Empowering the next generation of researchers and academics worldwide.</p>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-page.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h5>Resources</h5>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="blog-categories.html">Blog</a></li>
+                        <li><a href="resources.html">Free Tools</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/channel/UCGupft-xzHJ85QL95o2I93A" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: #4b5563;">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2026 Resourceful Scholars' Hub. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en" data-wp-theme="resourceful-scholars">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our comprehensive PhD resources and services. Free templates, tools, tutorials, and expert guidance for doctoral students.">
+    <title>Resources & Services - Resourceful Scholars' Hub</title>
+    
+    <!-- WordPress Meta Tags -->
+    <meta name="wp-template" content="resources-services-page">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            /* Professional Color Palette */
+            --primary-darkblue: #1e40af;
+            --primary-blue: #2563eb;
+            --secondary-skyblue: #3b82f6;
+            --accent-teal: #14b8a6;
+            --accent-light-teal: #5eead4;
+            --accent-gold: #fbbf24;
+            --success-green: #10b981;
+            --light-gray: #f8fafc;
+            --medium-gray: #e2e8f0;
+            --dark-gray: #64748b;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --shadow-light: 0 4px 20px rgba(30, 64, 175, 0.08);
+            --shadow-medium: 0 8px 40px rgba(30, 64, 175, 0.12);
+            --shadow-heavy: 0 20px 60px rgba(30, 64, 175, 0.15);
+            --shadow-card: 0 10px 30px rgba(30, 64, 175, 0.1);
+            
+            /* Animation Variables */
+            --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            border-radius: 5px;
+        }
+
+        /* Enhanced Navigation */
+        .rsh-navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(30, 64, 175, 0.1);
+            padding: 1.2rem 0;
+            transition: var(--transition-smooth);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .rsh-navbar.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: var(--shadow-light);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-darkblue), var(--secondary-skyblue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue) !important;
+        }
+
+        .btn-rsh-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-rsh-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+            color: white;
+        }
+
+        /* Page Navigation Tabs */
+        .page-nav {
+            background: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 70px;
+            z-index: 900;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            background: none;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            border-radius: 50px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-tab::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
+            transition: transform 0.3s ease;
+        }
+
+        .nav-tab.active {
+            color: var(--primary-blue);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .nav-tab.active::before {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .nav-tab:hover:not(.active) {
+            color: var(--primary-blue);
+            background: rgba(37, 99, 235, 0.02);
+        }
+
+        .nav-tab i {
+            margin-right: 0.5rem;
+        }
+
+        /* Enhanced Hero Section */
+        .resources-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, 
+                rgba(30, 64, 175, 0.9) 0%, 
+                rgba(59, 130, 246, 0.85) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path fill="%23ffffff" fill-opacity="0.05" d="M0,0V600H1200V0ZM600,300A150,150,0,1,1,600,0,150,150,0,0,1,600,300Z"/></svg>');
+            color: white;
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .resource-shape {
+            position: absolute;
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.1);
+            animation: floatResource 25s ease-in-out infinite;
+        }
+
+        @keyframes floatResource {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg) scale(1.1);
+            }
+            66% {
+                transform: translateY(15px) rotate(240deg) scale(0.9);
+            }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Resource Cards with 3D Effects */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px) rotateX(2deg);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--medium-gray);
+        }
+
+        .resource-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .resource-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--light-gray), white);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            box-shadow: var(--shadow-light);
+            transition: var(--transition-smooth);
+        }
+
+        .resource-card:hover .resource-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+        }
+
+        .resource-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
+            color: white;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-light);
+            animation: badgePulse 2s infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .resource-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .download-btn.loading {
+            background: var(--medium-gray);
+            cursor: not-allowed;
+        }
+
+        .download-btn.loading .btn-text {
+            display: none;
+        }
+
+        .download-btn.loading::after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Services Section */
+        .services-section {
+            background: linear-gradient(135deg, var(--light-gray), white);
+            padding: 5rem 0;
+            margin: 3rem 0;
+            border-radius: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+            border-left: 5px solid var(--primary-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) translateX(10px);
+            box-shadow: var(--shadow-heavy);
+            border-left-color: var(--accent-teal);
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(20, 184, 166, 0.1));
+            border-radius: 0 0 0 100px;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover::after {
+            width: 120px;
+            height: 120px;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--light-gray), white);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            box-shadow: var(--shadow-light);
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(15deg);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: 800;
+        }
+
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: white;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
+        }
+
+        /* Tools Showcase */
+        .tools-showcase {
+            padding: 4rem 0;
+            background: white;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .tool-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: var(--light-gray);
+            transition: var(--transition-smooth);
+            height: 100%;
+        }
+
+        .tool-card:hover {
+            background: linear-gradient(135deg, var(--light-gray), white);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .tool-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Download Progress Bar */
+        .download-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--medium-gray);
+            z-index: 9999;
+            display: none;
+        }
+
+        .download-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Pricing Cards */
+        .pricing-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--light-gray), white);
+            border-radius: 30px;
+            margin: 3rem 0;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--primary-blue);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin: 1.5rem 0;
+        }
+
+        .price-period {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            margin: 3rem 0;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-skyblue));
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--medium-gray);
+            align-items: center;
+        }
+
+        .table-row:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .check-icon {
+            color: var(--success-green);
+            font-size: 1.25rem;
+        }
+
+        .x-icon {
+            color: var(--dark-gray);
+            font-size: 1.25rem;
+            opacity: 0.5;
+        }
+
+        /* Enhanced CTA Section */
+        .resources-cta {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-light-teal));
+            color: white;
+            padding: 5rem 0;
+            border-radius: 30px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 15s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Enhanced Footer */
+        .rsh-footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-links a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light-teal);
+            transform: translateX(5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .resource-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .resource-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .resources-hero {
+                padding: 6rem 0 3rem;
+            }
+            
+            .nav-tabs-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-tab {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .category-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .resource-card,
+            .service-card,
+            .pricing-card {
+                padding: 1.5rem;
+            }
+            
+            .resource-icon,
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.75rem;
+            }
+            
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".rsh-navbar" data-bs-offset="100">
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg rsh-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap me-2"></i>
+                <span class="d-none d-sm-inline">Resourceful Scholars' Hub</span>
+                <span class="d-inline d-sm-none">RSH</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-page.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="resources-services.html">Resources & Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog-categories.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="index.html#cta" class="btn btn-rsh-primary">
+                            <i class="fas fa-download me-2"></i>Free Planner
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Navigation Tabs -->
+    <div class="page-nav">
+        <div class="container">
+            <div class="nav-tabs-container">
+                <button class="nav-tab active" data-target="resources">
+                    <i class="fas fa-download"></i> Free Resources
+                </button>
+                <button class="nav-tab" data-target="services">
+                    <i class="fas fa-concierge-bell"></i> Our Services
+                </button>
+                <button class="nav-tab" data-target="tools">
+                    <i class="fas fa-tools"></i> Recommended Tools
+                </button>
+                <button class="nav-tab" data-target="pricing">
+                    <i class="fas fa-tags"></i> Premium Options
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Hero Section -->
+    <section class="resources-hero">
+        <div class="resource-shapes">
+            <div class="resource-shape" style="top: 10%; left: 10%;">
+                <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="resource-shape" style="top: 40%; right: 15%;">
+                <i class="fas fa-tools"></i>
+            </div>
+            <div class="resource-shape" style="bottom: 20%; left: 20%;">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="hero-title">Your Complete PhD Toolkit</h1>
+                    <p class="hero-subtitle">
+                        Access free resources, premium services, and expert-recommended tools designed to 
+                        accelerate your research and simplify your PhD journey.
+                    </p>
+                    
+                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                        <a href="#resources" class="btn btn-light btn-lg">
+                            <i class="fas fa-download me-2"></i>Browse Free Resources
+                        </a>
+                        <a href="#services" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-play-circle me-2"></i>Explore Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Progress Bar -->
+    <div class="download-progress" id="downloadProgress">
+        <div class="download-progress-bar"></div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container py-5 py-md-7">
+        
+        <!-- RESOURCES SECTION -->
+        <section id="resources" class="content-section active">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary bg-gradient mb-3 px-3 py-2 rounded-pill">
+                    <i class="fas fa-gift me-2"></i>100% Free Downloads
+                </span>
+                <h2 class="display-5 fw-bold mb-3">Essential PhD Resources</h2>
+                <p class="lead text-muted">Download professional templates, checklists, and guides to streamline your research</p>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="category-filter" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-layer-group"></i> All Resources
+                </button>
+                <button class="filter-btn" data-filter="templates">
+                    <i class="fas fa-file-alt"></i> Templates
+                </button>
+                <button class="filter-btn" data-filter="checklists">
+                    <i class="fas fa-clipboard-check"></i> Checklists
+                </button>
+                <button class="filter-btn" data-filter="guides">
+                    <i class="fas fa-book"></i> Guides
+                </button>
+                <button class="filter-btn" data-filter="tools">
+                    <i class="fas fa-wrench"></i> Tools
+                </button>
+            </div>
+
+            <!-- Resources Grid -->
+            <div class="resource-grid">
+                <!-- Thesis Proposal Template -->
+                <div class="resource-card" data-category="templates" data-aos="fade-up" data-aos-delay="100">
+                    <div class="resource-badge">Most Popular</div>
+                    <div class="resource-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">PhD Thesis Proposal Template</h4>
+                    <p class="text-muted mb-3">
+                        Professionally formatted template with all essential sections pre-built. Customizable for any discipline.
+                    </p>
+                    <div class="resource-meta">
+                        <span class="text-muted">
+                            <i class="fas fa-download me-1"></i> 2,845 downloads
+                        </span>
+                        <button class="download-btn" data-resource="thesis-proposal">
+                            <span class="btn-text">Download</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Research Timeline Template -->
+                <div class="resource-card" data-category="templates" data-aos="fade-up" data-aos-delay="150">
+                    <div class="resource-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">PhD Timeline Planner</h4>
+                    <p class="text-muted mb-3">
+                        Editable Gantt chart for planning your entire PhD journey with key milestones and deadlines.
+                    </p>
+                    <div class="resource-meta">
+                        <span class="text-muted">
+                            <i class="fas fa-star me-1"></i> 4.9/5 rating
+                        </span>
+                        <button class="download-btn" data-resource="timeline-planner">
+                            <span class="btn-text">Download</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Literature Review Template -->
+                <div class="resource-card" data-category="templates" data-aos="fade-up" data-aos-delay="200">
+                    <div class="resource-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">Literature Review Template</h4>
+                    <p class="text-muted mb-3">
+                        Structured template for organizing and writing comprehensive literature reviews with citation management.
+                    </p>
+                    <div class="resource-meta">
+                        <span class="text-muted">
+                            <i class="fas fa-download me-1"></i> 1,923 downloads
+                        </span>
+                        <button class="download-btn" data-resource="literature-review">
+                            <span class="btn-text">Download</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Proposal Checklist -->
+                <div class="resource-card" data-category="checklists" data-aos="fade-up" data-aos-delay="100">
+                    <div class="resource-badge">New</div>
+                    <div class="resource-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">PhD Proposal Checklist</h4>
+                    <p class="text-muted mb-3">
+                        Comprehensive checklist covering all critical elements of a successful PhD proposal submission.
+                    </p>
+                    <div class="resource-meta">
+                        <span class="text-muted">
+                            <i class="fas fa-star me-1"></i> 4.8/5 rating
+                        </span>
+                        <button class="download-btn" data-resource="proposal-checklist">
+                            <span class="btn-text">Download</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Data Analysis Checklist -->
+                <div class="resource-card" data-category="checklists" data-aos="fade-up" data-aos-delay="150">
+                    <div class="resource-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">Data Analysis Checklist</h4>
+                    <p class="text-muted mb-3">
+                        Complete quality control checklist for data analysis ensuring all necessary steps are completed correctly.
+                    </p>
+                    <div class="resource-meta">
+                        <span class="text-muted">
+                            <i class="fas fa-download me-1"></i> 1,542 downloads
+                        </span>
+                        <button class="download-btn" data-resource="analysis-checklist">
+                            <span class="btn-text">Download</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Conference Abstract Guide -->
+                <div class="resource-card" data-category="guides" data-aos="fade-up" data-aos-delay="200">
+                    <div class="resource-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">Conference Abstract Guide</h4>
+                    <p class="text-muted mb-3">
+                        Step-by-step guide for writing conference abstracts that get accepted, with 10 real examples.
+                    </p>
+                    <div class="resource-meta">
+                        <span class="text-muted">
+                            <i class="fas fa-star me-1"></i> 4.7/5 rating
+                        </span>
+                        <button class="download-btn" data-resource="abstract-guide">
+                            <span class="btn-text">Download</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Research Ethics Guide -->
+                <div class="resource-card" data-category="guides" data-aos="fade-up" data-aos-delay="100">
+                    <div class="resource-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">Research Ethics Guide</h4>
+                    <p class="text-muted mb-3">
+                        Comprehensive guide to research ethics, IRB approval process, and maintaining ethical standards.
+                    </p>
+                    <div class="resource-meta">
+                        <span class="text-muted">
+                            <i class="fas fa-download me-1"></i> 892 downloads
+                        </span>
+                        <button class="download-btn" data-resource="ethics-guide">
+                            <span class="btn-text">Download</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Presentation Template -->
+                <div class="resource-card" data-category="templates" data-aos="fade-up" data-aos-delay="150">
+                    <div class="resource-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">Academic Presentation Template</h4>
+                    <p class="text-muted mb-3">
+                        Professional PowerPoint template designed for academic presentations with speaker notes and guidelines.
+                    </p>
+                    <div class="resource-meta">
+                        <span class="text-muted">
+                            <i class="fas fa-star me-1"></i> 4.9/5 rating
+                        </span>
+                        <button class="download-btn" data-resource="presentation-template">
+                            <span class="btn-text">Download</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources CTA -->
+            <div class="text-center mt-5" data-aos="fade-up">
+                <div class="alert alert-info border-0 rounded-3" role="alert">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <i class="fas fa-info-circle fa-2x me-3 text-primary"></i>
+                        <div class="text-start">
+                            <h5 class="fw-bold mb-1">Want More Resources?</h5>
+                            <p class="mb-0">Subscribe to get notified when we release new templates and guides.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="content-section">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary bg-gradient mb-3 px-3 py-2 rounded-pill">
+                    <i class="fas fa-concierge-bell me-2"></i>Expert Guidance
+                </span>
+                <h2 class="display-5 fw-bold mb-3">Our Comprehensive Services</h2>
+                <p class="lead text-muted">Professional support for every stage of your PhD journey</p>
+            </div>
+
+            <div class="services-section">
+                <!-- Academic Writing Service -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">Academic Writing Excellence</h3>
+                    <p class="text-muted mb-4">
+                        Master the art of academic writing with comprehensive guides on thesis proposals, research papers, 
+                        journal articles, and conference abstracts.
+                    </p>
+                    
+                    <h5 class="fw-bold mb-3">What's Included:</h5>
+                    <ul class="service-features">
+                        <li>PhD Thesis Proposal Writing - Structure, content, and defense preparation</li>
+                        <li>Literature Review Strategies - Comprehensive approaches to reviewing existing research</li>
+                        <li>Research Paper Writing - From concept to publication</li>
+                        <li>Journal Article Submission - Selecting journals and preparing manuscripts</li>
+                        <li>Conference Abstract Writing - Creating compelling abstracts that stand out</li>
+                    </ul>
+                    
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <div>
+                            <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2">
+                                <i class="fas fa-users me-1"></i>5,000+ Students Helped
+                            </span>
+                        </div>
+                        <a href="contact.html" class="btn btn-rsh-primary">
+                            <i class="fas fa-calendar me-2"></i>Schedule Consultation
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Data Analysis Service -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">Data Analysis & Statistics</h3>
+                    <p class="text-muted mb-4">
+                        Understand and analyze your research data with detailed tutorials that demystify statistical analysis 
+                        and help you choose the right tools and methods.
+                    </p>
+                    
+                    <h5 class="fw-bold mb-3">Software Covered:</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="service-features">
+                                <li>SPSS Tutorials - Complete guides for all major analyses</li>
+                                <li>R Programming - Data analysis and visualization</li>
+                                <li>Python for Data Science - Statistical analysis using Python</li>
+                                <li>Descriptive Statistics - Understanding data fundamentals</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="service-features">
+                                <li>Hypothesis Testing - t-tests, ANOVA, correlation analysis</li>
+                                <li>Regression Analysis - Linear and multiple regression</li>
+                                <li>Data Visualization - Creating meaningful charts</li>
+                                <li>Qualitative Data Analysis - NVivo, ATLAS.ti methods</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <div>
+                            <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2">
+                                <i class="fas fa-video me-1"></i>50+ Video Tutorials
+                            </span>
+                        </div>
+                        <a href="https://www.youtube.com/channel/UCGupft-xzHJ85QL95o2I93A" 
+                           class="btn btn-outline-primary" target="_blank">
+                            <i class="fab fa-youtube me-2"></i>Watch Tutorials
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Research Methodology Service -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-flask-vial"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">Research Methodology Guidance</h3>
+                    <p class="text-muted mb-4">
+                        Comprehensive guidance on selecting, designing, and implementing research approaches appropriate 
+                        for your research questions and academic discipline.
+                    </p>
+                    
+                    <h5 class="fw-bold mb-3">Topics Covered:</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="service-features">
+                                <li>Research Design Selection - Quantitative, qualitative, mixed methods</li>
+                                <li>Literature Review Conduct - Systematic and narrative approaches</li>
+                                <li>Qualitative Research Methods - Interviews, focus groups, case studies</li>
+                                <li>Quantitative Research Methods - Surveys, experiments, observations</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="service-features">
+                                <li>Sampling Strategies - Selecting participants and techniques</li>
+                                <li>Data Collection Methods - Interviews, questionnaires</li>
+                                <li>Research Ethics - IRB approval, informed consent</li>
+                                <li>Validity & Reliability - Ensuring quality in research</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <div>
+                            <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2">
+                                <i class="fas fa-book me-1"></i>22+ Detailed Guides
+                            </span>
+                        </div>
+                        <button class="btn btn-rsh-primary" onclick="showServiceModal('methodology')">
+                            <i class="fas fa-info-circle me-2"></i>Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOOLS SECTION -->
+        <section id="tools" class="content-section">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary bg-gradient mb-3 px-3 py-2 rounded-pill">
+                    <i class="fas fa-tools me-2"></i>Recommended Tools
+                </span>
+                <h2 class="display-5 fw-bold mb-3">Essential PhD Software & Tools</h2>
+                <p class="lead text-muted">Curated tools recommended by successful PhD students and researchers</p>
+            </div>
+
+            <div class="tools-showcase">
+                <div class="row g-4">
+                    <!-- Reference Managers -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Reference Managers</h4>
+                            <p class="text-muted mb-3">
+                                Zotero, Mendeley, and RefWorks help organize citations and automate bibliography creation.
+                            </p>
+                            <div class="tool-tags">
+                                <span class="tool-tag">Free Options Available</span>
+                                <span class="tool-tag">Cloud Sync</span>
+                                <span class="tool-tag">Word Integration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Statistical Software -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Statistical Software</h4>
+                            <p class="text-muted mb-3">
+                                SPSS, R, Python, and STATA are powerful tools for quantitative data analysis.
+                            </p>
+                            <div class="tool-tags">
+                                <span class="tool-tag">Academic Discounts</span>
+                                <span class="tool-tag">Open Source Options</span>
+                                <span class="tool-tag">Comprehensive Tutorials</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Writing Software -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Writing Software</h4>
+                            <p class="text-muted mb-3">
+                                Microsoft Word, LaTeX, and Overleaf are excellent for academic writing with advanced formatting.
+                            </p>
+                            <div class="tool-tags">
+                                <span class="tool-tag">Collaboration Features</span>
+                                <span class="tool-tag">Version Control</span>
+                                <span class="tool-tag">Template Libraries</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Management -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Project Management</h4>
+                            <p class="text-muted mb-3">
+                                Asana, Monday.com, and Trello help organize research tasks and timelines.
+                            </p>
+                            <div class="tool-tags">
+                                <span class="tool-tag">Free for Students</span>
+                                <span class="tool-tag">Mobile Apps</span>
+                                <span class="tool-tag">Team Collaboration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cloud Storage -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Cloud Storage</h4>
+                            <p class="text-muted mb-3">
+                                Google Drive, Dropbox, and OneDrive ensure your research data is backed up and accessible.
+                            </p>
+                            <div class="tool-tags">
+                                <span class="tool-tag">Free Storage</span>
+                                <span class="tool-tag">Automatic Backup</span>
+                                <span class="tool-tag">File Sharing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visualization Tools -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Visualization Tools</h4>
+                            <p class="text-muted mb-3">
+                                Tableau, ggplot2, and matplotlib create professional charts and graphs for presentations.
+                            </p>
+                            <div class="tool-tags">
+                                <span class="tool-tag">Interactive Charts</span>
+                                <span class="tool-tag">Publication Quality</span>
+                                <span class="tool-tag">Customizable</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING SECTION -->
+        <section id="pricing" class="content-section">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary bg-gradient mb-3 px-3 py-2 rounded-pill">
+                    <i class="fas fa-tags me-2"></i>Premium Options
+                </span>
+                <h2 class="display-5 fw-bold mb-3">Upgrade Your PhD Support</h2>
+                <p class="lead text-muted">Enhanced services for comprehensive PhD guidance and support</p>
+            </div>
+
+            <div class="pricing-section">
+                <div class="row g-4">
+                    <!-- Basic Plan -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="pricing-card">
+                            <h3 class="fw-bold mb-3">Basic Support</h3>
+                            <p class="text-muted mb-4">Essential resources for independent learners</p>
+                            
+                            <div class="price">
+                                Free
+                            </div>
+                            
+                            <ul class="service-features mb-4">
+                                <li>Access to all free templates</li>
+                                <li>Basic video tutorials</li>
+                                <li>Community forum access</li>
+                                <li>Weekly newsletter</li>
+                                <li class="text-muted"><s>One-on-one consultations</s></li>
+                                <li class="text-muted"><s>Priority support</s></li>
+                                <li class="text-muted"><s>Custom templates</s></li>
+                            </ul>
+                            
+                            <button class="btn btn-outline-primary w-100" onclick="window.location.href='index.html#cta'">
+                                Get Started Free
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pro Plan -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="pricing-card featured">
+                            <div class="pricing-badge">Most Popular</div>
+                            <h3 class="fw-bold mb-3">Pro Guidance</h3>
+                            <p class="text-muted mb-4">Comprehensive support for serious PhD students</p>
+                            
+                            <div class="price">
+                                $29<span class="price-period">/month</span>
+                            </div>
+                            
+                            <ul class="service-features mb-4">
+                                <li>Everything in Basic</li>
+                                <li>Monthly one-on-one consultations</li>
+                                <li>Priority email support</li>
+                                <li>Custom template requests</li>
+                                <li>Advanced video tutorials</li>
+                                <li>Workshop access</li>
+                                <li class="text-muted"><s>Weekly check-ins</s></li>
+                            </ul>
+                            
+                            <button class="btn btn-rsh-primary w-100" onclick="showPricingModal('pro')">
+                                Choose Pro Plan
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Premium Plan -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="pricing-card">
+                            <h3 class="fw-bold mb-3">Premium Partnership</h3>
+                            <p class="text-muted mb-4">Complete PhD journey support</p>
+                            
+                            <div class="price">
+                                $97<span class="price-period">/month</span>
+                            </div>
+                            
+                            <ul class="service-features mb-4">
+                                <li>Everything in Pro</li>
+                                <li>Weekly one-on-one sessions</li>
+                                <li>24/7 priority support</li>
+                                <li>Custom resource development</li>
+                                <li>Dissertation chapter reviews</li>
+                                <li>Conference preparation</li>
+                                <li>Publication support</li>
+                            </ul>
+                            
+                            <button class="btn btn-outline-primary w-100" onclick="showPricingModal('premium')">
+                                Contact for Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="comparison-table mt-5" data-aos="fade-up">
+                    <div class="table-header text-center">Feature Comparison</div>
+                    <div class="table-row">
+                        <div class="fw-bold">Features</div>
+                        <div class="text-center">Basic</div>
+                        <div class="text-center">Pro</div>
+                        <div class="text-center">Premium</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Free Templates Access</div>
+                        <div class="text-center"><i class="fas fa-check check-icon"></i></div>
+                        <div class="text-center"><i class="fas fa-check check-icon"></i></div>
+                        <div class="text-center"><i class="fas fa-check check-icon"></i></div>
+                    </div>
+                    <div class="table-row">
+                        <div>One-on-One Consultations</div>
+                        <div class="text-center"><i class="fas fa-times x-icon"></i></div>
+                        <div class="text-center">Monthly</div>
+                        <div class="text-center">Weekly</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Priority Support</div>
+                        <div class="text-center"><i class="fas fa-times x-icon"></i></div>
+                        <div class="text-center"><i class="fas fa-check check-icon"></i></div>
+                        <div class="text-center">24/7</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Custom Templates</div>
+                        <div class="text-center"><i class="fas fa-times x-icon"></i></div>
+                        <div class="text-center">5/month</div>
+                        <div class="text-center">Unlimited</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Dissertation Review</div>
+                        <div class="text-center"><i class="fas fa-times x-icon"></i></div>
+                        <div class="text-center"><i class="fas fa-times x-icon"></i></div>
+                        <div class="text-center"><i class="fas fa-check check-icon"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Enhanced CTA Section -->
+    <section class="resources-cta">
+        <div class="cta-particles" id="ctaParticles"></div>
+        
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="zoom-in">
+                    <h2 class="display-4 fw-bold mb-4">Start Your PhD Journey Today</h2>
+                    <p class="lead mb-5 opacity-90">
+                        Join thousands of PhD students who have transformed their academic experience with our resources.
+                    </p>
+                    
+                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                        <a href="index.html#cta" class="btn btn-light btn-lg px-5">
+                            <i class="fas fa-download me-2"></i>Get Free Starter Pack
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-comments me-2"></i>Book Free Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="rsh-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand text-white mb-3 d-inline-block" href="index.html">
+                        <i class="fas fa-graduation-cap me-2"></i>
+                        Resourceful Scholars' Hub
+                    </a>
+                    <p class="text-light opacity-75 mb-4">
+                        Empowering PhD students worldwide with professional planning tools and academic resources.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="https://www.youtube.com/channel/UCGupft-xzHJ85QL95o2I93A" 
+                           class="text-white opacity-75 hover-opacity-100" target="_blank">
+                            <i class="fab fa-youtube fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white opacity-75 hover-opacity-100">
+                            <i class="fab fa-twitter fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white opacity-75 hover-opacity-100">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white opacity-75 hover-opacity-100">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about-page.html">About</a>
+                        <a href="resources-services.html">Resources & Services</a>
+                        <a href="blog-categories.html">Blog</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-white mb-4">Resources</h5>
+                    <div class="footer-links">
+                        <a href="#resources">Free Downloads</a>
+                        <a href="#tools">Recommended Tools</a>
+                        <a href="index.html#cta">PhD Planner</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="text-white mb-4">Contact Information</h5>
+                    <div class="footer-links">
+                        <a href="mailto:info@resourcefulscholarshub.com">
+                            <i class="fas fa-envelope me-2"></i>info@resourcefulscholarshub.com
+                        </a>
+                        <a href="https://resourcefulscholarshub.com" target="_blank">
+                            <i class="fas fa-globe me-2"></i>resourcefulscholarshub.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-5 opacity-25">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light opacity-75">
+                        &copy; 2026 Resourceful Scholars' Hub. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-light opacity-75">
+                        Founded by Grace Njeri-Otieno
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Service Details -->
+    <div class="modal fade" id="serviceModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="serviceModalTitle"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="serviceModalBody">
+                    <!-- Content loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.rsh-navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Tab Navigation
+        const tabs = document.querySelectorAll('.nav-tab');
+        const sections = document.querySelectorAll('.content-section');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                
+                // Update active tab
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show target section
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    }
+                });
+                
+                // Scroll to section
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 120,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Category Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const resourceCards = document.querySelectorAll('.resource-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter cards
+                resourceCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Download Functionality
+        const downloadButtons = document.querySelectorAll('.download-btn');
+        const downloadProgress = document.getElementById('downloadProgress');
+        const progressBar = downloadProgress.querySelector('.download-progress-bar');
+        
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', async function() {
+                const resource = this.getAttribute('data-resource');
+                const buttonText = this.querySelector('.btn-text');
+                const originalText = buttonText.textContent;
+                
+                // Show loading state
+                this.classList.add('loading');
+                buttonText.textContent = 'Downloading...';
+                
+                // Show progress bar
+                downloadProgress.style.display = 'block';
+                progressBar.style.width = '0%';
+                
+                // Simulate download progress
+                for (let i = 0; i <= 100; i += 10) {
+                    setTimeout(() => {
+                        progressBar.style.width = i + '%';
+                    }, i * 20);
+                }
+                
+                // Simulate download delay
+                setTimeout(() => {
+                    // Reset button
+                    this.classList.remove('loading');
+                    buttonText.textContent = originalText;
+                    
+                    // Hide progress bar
+                    setTimeout(() => {
+                        downloadProgress.style.display = 'none';
+                        progressBar.style.width = '0%';
+                    }, 500);
+                    
+                    // Show success message
+                    showDownloadSuccess(resource);
+                    
+                }, 2000);
+            });
+        });
+        
+        function showDownloadSuccess(resource) {
+            // Create success notification
+            const notification = document.createElement('div');
+            notification.className = 'alert alert-success position-fixed';
+            notification.style.cssText = `
+                top: 100px;
+                right: 20px;
+                z-index: 9999;
+                min-width: 300px;
+                box-shadow: var(--shadow-heavy);
+                border-radius: 10px;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            notification.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-check-circle fa-2x me-3 text-success"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1">Download Complete!</h6>
+                        <p class="mb-0">${getResourceName(resource)} has been downloaded successfully.</p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+        
+        function getResourceName(resource) {
+            const names = {
+                'thesis-proposal': 'PhD Thesis Proposal Template',
+                'timeline-planner': 'PhD Timeline Planner',
+                'literature-review': 'Literature Review Template',
+                'proposal-checklist': 'PhD Proposal Checklist',
+                'analysis-checklist': 'Data Analysis Checklist',
+                'abstract-guide': 'Conference Abstract Guide',
+                'ethics-guide': 'Research Ethics Guide',
+                'presentation-template': 'Academic Presentation Template'
+            };
+            return names[resource] || 'Resource';
+        }
+        
+        // Service Modal
+        function showServiceModal(service) {
+            const modal = new bootstrap.Modal(document.getElementById('serviceModal'));
+            const title = document.getElementById('serviceModalTitle');
+            const body = document.getElementById('serviceModalBody');
+            
+            const services = {
+                'methodology': {
+                    title: 'Research Methodology Guidance',
+                    content: `
+                        <h5 class="fw-bold mb-3">Comprehensive Methodology Support</h5>
+                        <p class="mb-4">Our methodology guidance service provides expert support for designing, implementing, and reporting your research methodology.</p>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-3">What You'll Get:</h6>
+                                <ul class="service-features">
+                                    <li>Methodology design consultation</li>
+                                    <li>Statistical analysis planning</li>
+                                    <li>Sample size calculation guidance</li>
+                                    <li>Ethics approval assistance</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-3">Delivery Format:</h6>
+                                <ul class="service-features">
+                                    <li>Video consultations (60 minutes)</li>
+                                    <li>Written feedback on methodology</li>
+                                    <li>Customized resources</li>
+                                    <li>Follow-up support</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <i class="fas fa-clock me-2"></i>
+                            <strong>Typical Timeline:</strong> 2-4 weeks for comprehensive methodology development
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <a href="contact.html" class="btn btn-primary btn-lg">
+                                <i class="fas fa-calendar me-2"></i>Schedule Consultation
+                            </a>
+                        </div>
+                    `
+                }
+            };
+            
+            if (services[service]) {
+                title.textContent = services[service].title;
+                body.innerHTML = services[service].content;
+                modal.show();
+            }
+        }
+        
+        // Pricing Modal
+        function showPricingModal(plan) {
+            // In a real implementation, this would redirect to checkout or show a pricing modal
+            if (plan === 'pro') {
+                window.location.href = 'checkout.html?plan=pro';
+            } else {
+                // For premium, redirect to contact form
+                window.location.href = 'contact.html?interest=premium';
+            }
+        }
+        
+        // Create particles for CTA
+        function createParticles() {
+            const container = document.getElementById('ctaParticles');
+            if (!container) return;
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 120,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize particles on load
+        window.addEventListener('load', function() {
+            createParticles();
+            
+            // Add animation styles
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Add resource card entrance animations
+            const cards = document.querySelectorAll('.resource-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
